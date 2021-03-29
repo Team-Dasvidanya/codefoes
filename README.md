@@ -9,3 +9,5 @@
 - Rinat Galeev
 
 #### A fighting/survival/trivia game to keep you from being bored!
+
+[Wireframe](img/Dasvidanya.pdf)
