@@ -31,7 +31,7 @@ Minimum Viable Product vs
 
 
 The game will not include concepts outside the scope of Code 201 curriculum.
-We will not be providing the correct answers to questions the user got incorrect. 
+We will not be providing the correct answers to questions the user got incorrect.
 
 
 ### What will your MVP functionality be?
@@ -39,9 +39,9 @@ We will not be providing the correct answers to questions the user got incorrect
 The MVP functionality will be:
 
 - Home page with form for entering the name
-- Local storage to keep track of game stores
+- Local storage to keep track of game scores
 - Start game button
-- 2 Questions per light, medium and heavy attack banks
+- 2 Questions per light, medium and heavy attack question banks
 - Health tally
 - Game logic / Battle logic
 - Results page
@@ -67,7 +67,7 @@ The MVP functionality will be:
 
 1. Health Bar Display
 2. Randomized damage numbers
-3. Pixel charactyer models
+3. Pixel character models
 4. More than one opponent
 
 
