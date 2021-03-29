@@ -1,3 +1,19 @@
 
+body {
+
+}
+
+
 header {
+   background-color: grey;
+   color: white;
+   height: 100px;
+   margin: 
+}
+
+h1 {
+  font-size: 4em;
+  font-family: helvetica;
+  text-align: center;
+  padding-top: 20px;
 }
