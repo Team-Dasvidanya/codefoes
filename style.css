@@ -184,6 +184,8 @@ footer {
 
 }
 
+
+/* Quiz Question Container */
 .quiz-ctr {
   background-color: cornsilk;
   width: 500px;
@@ -198,7 +200,7 @@ footer {
   margin: 20px 30px;
 }
 
-
+/* Hero Container */
 .hero-ctr {
   background-color: cyan;
   width: 500px;
@@ -224,7 +226,7 @@ flex-direction: column;
 
 
 
-
+/* Opponent Container */
 .opponent-ctr {
   background-color: cyan;
   width: 500px;
@@ -237,8 +239,29 @@ flex-direction: column;
   margin: 20px 20px;
   }
 
+
+  /* Attack Selection Container */
 .attack-ctr {
   background-color: cornsilk;
   width: 500px;
   height: 200px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
+
+.attack-item {
+  border: solid 10px black;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+
+
+
+
+
+
+
+
+
