@@ -102,22 +102,33 @@ let ql2 = new LightQuestion("what2?", "yes2", "no2", "not quite2", "maybe2", "an
 //TODO GAME
 
 let currentHealth = 500;
-let death = 0; 
+let death = 0;
 
-const handleClickOnAttack = function(event) {
+const handleClickOnAttack = function (event) {
+    let currentQuestion = null;
     if (currentHealth > death) {
         const attackWeClicked = event.target;
         const id = attackWeClicked.id;
+        console.log(attackWeClicked);
         if (id === "attack-item-light" || id === "attack-item-medium" || id === "attack-item-heavy") {
-            if (id === "attack-item-light"){
-                pickNewLightQuestion();
-            } else if (id === "attack-item-medium"){
-                pickNewMediumQuestion();
+            if (id === "attack-item-light") {
+                currentQuestion = pickNewLightQuestion();
+            } else if (id === "attack-item-medium") {
+                currentQuestion = pickNewMediumQuestion();
             } else {
-                pickNewHeavyQuestion();
+                currentQuestion = pickNewHeavyQuestion();
+            }
         }
+        quizQuestion(currentQuestion);
+        quizAnswer1(currentQuestion);
+        quizAnswer2(currentQuestion);
+        quizAnswer3(currentQuestion);
+        quizAnswer4(currentQuestion);
     }
 }
+
+
+
 
 
 //TODO generate random question
@@ -135,66 +146,71 @@ let prevLightQuestion = null;
 let prevMediumQuestion = null;
 let prevHeavyQuestion = null;
 
-function pickNewLightQuestion(){
+function pickNewLightQuestion() {
     const previousQuestion = prevLightQuestion;
 
-    shuffle(LightQuestion.all);
+    shuffle(LightQuestion.allLightQuestions);
     for (let question of LightQuestion.allLightQuestions) {
         if (question !== previousQuestion) {
             prevLightQuestion = question;
             break;
         }
     }
+    console.log (LightQuestion.allLightQuestions[0])
+    return LightQuestion.allLightQuestions[0];
+
 }
-function pickNewMediumQuestion(){
+function pickNewMediumQuestion() {
     const previousQuestion = prevMediumQuestion;
 
-    shuffle(MediumQuestion.all);
+    shuffle(MediumQuestion.allMediumQuestions);
     for (let question of MediumQuestion.allMediumQuestions) {
         if (question !== previousQuestion) {
             prevMediumQuestion = question;
             break;
         }
     }
+    return MediumQuestion.allMediumQuestions[0];
 }
-function pickNewHeavyQuestion(){
+function pickNewHeavyQuestion() {
     const previousQuestion = prevHeavyQuestion;
 
-    shuffle(HeavyQuestion.all);
+    shuffle(HeavyQuestion.allHeavyQuestions);
     for (let question of HeavyQuestion.allHeavyQuestions) {
         if (question !== previousQuestion) {
             prevHeavyQuestion = question;
             break;
         }
     }
+    return HeavyQuestion.allHeavyQuestions[0];
 }
 
 
-function quizQuestion() {
+function quizQuestion(selectedQuestion) {
     const questionElem = document.getElementById("quiz-question");
-    questionElem.textContent = ql1.question;
+    questionElem.textContent = selectedQuestion.question;
 
 }
 
-function quizAnswer1() {
+function quizAnswer1(selectedQuestion) {
     const answer1Elem = document.getElementById("answer1label");
-    answer1Elem.textContent = ql1.answer1;
+    answer1Elem.textContent = selectedQuestion.answer1;
     console.log(answer1Elem);
 }
 
-function quizAnswer2() {
+function quizAnswer2(selectedQuestion) {
     const answer2Elem = document.getElementById("answer2label");
-    answer2Elem.textContent = ql1.answer2;
+    answer2Elem.textContent = selectedQuestion.answer2;
 
 }
-function quizAnswer3() {
+function quizAnswer3(selectedQuestion) {
     const answer3Elem = document.getElementById("answer3label");
-    answer3Elem.textContent = ql1.answer3;
+    answer3Elem.textContent = selectedQuestion.answer3;
 
 }
-function quizAnswer4() {
+function quizAnswer4(selectedQuestion) {
     const answer4Elem = document.getElementById("answer4label");
-    answer4Elem.textContent = ql1.answer4;
+    answer4Elem.textContent = selectedQuestion.answer4;
 
 }
 
@@ -204,13 +220,6 @@ const attackElem = document.getElementById('attack-ctr');
 attackElem.addEventListener('click', handleClickOnAttack);
 
 // TODO: when user clicks on light attack, choose a constructed light question randomly from lightquestion array (LightQuestion.all) and populate it in the quiz-ctr div with the question, answers on radio buttons, and a correct answer specified. Once they submit, calculate if they got it right. If they did, remove health from enemy. If they did not, remove health from hero. If either hero or enemy is not dead, let them select another attack.
-
-
-quizQuestion();
-quizAnswer1();
-quizAnswer2();
-quizAnswer3();
-quizAnswer4();
 
 
 
