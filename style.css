@@ -1,0 +1,177 @@
+body {
+  font-family: helvetica;
+}
+
+
+header {
+  background-color: rgb(60, 60, 60);
+  color: white;
+  height: 120px;
+  display: grid;
+  place-items: center;
+}
+
+h1 {
+  font-size: 4em;
+}
+
+h3 {
+  font-size: 2em;
+}
+
+h4 {
+  font-size: 1.4em;
+}
+
+h5 {
+  font-size: 1.3em;
+}
+
+main {
+  background-color: darkgrey;
+  height: 800px;
+  margin: 30px 40px;
+  display: flex;
+  /* justify-content: space-between; */
+}
+
+.mainLeft {
+  /* background-color: yellow; */
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+
+form {
+  display: flex;
+  /* background-color: yellow; */
+  width: 100%;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+
+form>div {
+  display: flex;
+  flex-direction: column;
+  /* background-color: blue; */
+  width: 50%;
+}
+
+
+form>div>input {
+  width: 100%;
+  height: 30px;
+}
+
+form>div>button {
+  width: 60%;
+  margin-top: 30px;
+  height: 50px;
+  border-radius: 20px;
+  font-size: 2em;
+}
+
+
+.description {
+  /* background-color: green; */
+  width: 90%;
+  position: relative;
+  top: -100px;
+}
+
+.description>h3 {
+  margin-bottom: 20px;
+}
+
+.description>p {
+  font-size: 1.5em;
+}
+
+
+.mainRight {
+  /* background-color: tan; */
+  width: 50%;
+
+  /* display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center; */
+}
+
+
+.score-ctr {
+  background-color: rgb(216, 216, 216);
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  
+  align-items: center;
+  margin: 60px auto;
+
+}
+
+.score-ctr>h3 {
+  margin-top: 30px;
+}
+
+.previousScore {
+  /* background-color: red; */
+  height: 300px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.mainRight>button {
+  width: 200px;
+  height: 70px;
+  border-radius: 20px;
+  font-size: 2em;
+  margin-left: 25%;
+}
+
+
+footer {
+  background-color: lightcyan;
+margin-top: 40px;
+height: 350px;
+display: flex;
+}
+
+.prof-ctr {
+  background-color: green;
+  height: 85%;
+  width: 300px;
+  margin: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.prof-img {
+  width: 90%;
+  height: 55%;
+  background-color: indigo;
+}
+
+.prof-name {
+  width: 90%;
+  height: 30%;
+  background-color: lavender;
+  display: grid;
+  place-items: center;
+}
+
+
+
+
+
+
+
+
