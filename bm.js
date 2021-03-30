@@ -48,7 +48,39 @@ console.log("heroHealth", heroHealth);
 heroHealth.textContent = "500";
 enemyHealth.textContent = "500";
 //TODO set up quesions and answers in arrays with correct answers identified
+let lightAttack = [];
+let mediumAttack = [];
+let heavyAttack = [];
+
 //TODO set up a function that shows the heavy light medium attacks and pulls from the correct array
+let q1 = new HeavyQuestion("what?", "yes", "no", "not quite", "maybe");
+
+function HeavyQuestion(question, answer1, answer2, answer3, answer4) {
+    this.question = question;
+    this.answer1 = answer1;
+    this.answer2 = answer2;
+    this.answer3 = answer3;
+    this.answer4 = answer4;
+
+}
+
+function MediumQuestion(question, answer1, answer2, answer3, answer4) {
+    this.question = question;
+    this.answer1 = answer1;
+    this.answer2 = answer2;
+    this.answer3 = answer3;
+    this.answer4 = answer4;
+
+}
+
+function LightQuestion(question, answer1, answer2, answer3, answer4) {
+    this.question = question;
+    this.answer1 = answer1;
+    this.answer2 = answer2;
+    this.answer3 = answer3;
+    this.answer4 = answer4;
+
+}
 
 //TODO GAME
 //TODO generate random question
@@ -83,18 +115,7 @@ gameData = {
 
 //TODO set up a function that chooses a random question and its answers with a correct answer 
 
-let lightAttack = [];
-let mediumAttack = [];
-let heavyAttack = [];
 
-function HeavyQuestion(question, answer1, answer2, answer3, answer4) {
-    this.question = question;
-    this.answer1 = answer1;
-    this.answer2 = answer2;
-    this.answer3 = answer3;
-    this.answer4 = answer4;
-
-}
 
 
 function randomNum(max, min) {
