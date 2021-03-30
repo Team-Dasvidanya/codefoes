@@ -5,35 +5,74 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codefoes - Battle</title>
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="bm.css">
-    <title>Defeat your Foe!</title>
+    <link rel="stylesheet" href="style.css">
+
+
 </head>
 
 <body>
 
+    <header>
+        <h1>Codefoes</h1>
+    </header>
+
     <main>
-        <div class="instructions">
-            <p>Fight!</p>
+        <div class="mainLeft">
+            <div class="quiz-ctr">
+                <h3 id="quiz-question">Question? What's the answer?</h3>
+                <input type="radio" name="answer1" id="answer1">Answer 1<br>
+                <input type="radio" name="answer2" id="answer2">Answer 2<br>
+                <input type="radio" name="answer3" id="answer3">Answer 3<br>
+            </div>
+
+
+
+            <div class="hero-ctr">
+                <img src="https://picsum.photos/225" alt="">
+                <div class="hero-info">
+                    <h6 class="name">Tim Egorov</h6>
+                    <div class="healthbar"></div>
+                    <h6>Health Remaining:</h6>
+
+                </div>
+
+
+
+            </div>
+        </div>
+        <div class="mainRight flexy">
+            <div class="opponent-ctr">
+                <img src="https://picsum.photos/225" alt="">
+                <div class="hero-info">
+                    <h6 class="name">Tim Egorov</h6>
+                    <div class="healthbar"></div>
+                    <h6>Health Remaining:</h6>
+
+                </div>
+            </div>
+
+
+            <div class="attack-ctr">
+                <div class="attack-item">Light Attack</div>
+                <div class="attack-item">Medium Attack</div>
+                <div class="attack-item">Heavy Attack</div>
+            </div>
         </div>
 
-        <section class="stadium">
-            <section class="enemy">
-                <img class="enemy-pic" src="" alt="">
-                <p id="enemy-health">Enemy</p>
-            </section>
-            <section class="hero">
-                <img class="hero-pic" src="" alt="">
-                <p id="hero-health">Hero</p>
-            </section>
-        </section>
 
-        <ul class="attack-list"></ul>
+
+
+
+
     </main>
     <footer>
     </footer>
     <script src="app.js"></script>
     <script src="bm.js"></script>
+
 </body>
 
 </html>
