@@ -28,39 +28,48 @@ main {
   height: 800px;
   margin: 10px 40px;
   display: flex;
+  /* justify-content: space-between; */
 }
 
-
-/* THIS IS A HACK */
-.empty {
-  height: 20px;
+.mainLeft {
+background-color: yellow;
+width: 50%;
+display: flex;
+flex-direction: column;
+justify-content: space-around;
+align-items: center;
 }
 
+.mainRight {
+background-color: tan;
+width: 50%;
+display: flex;
+flex-direction: column;
+justify-content: space-around;
+align-items: center;
+}
 
+ 
 form {
   display: flex;
-  margin: 100px 0px 0px 100px;
   background-color: yellow;
-  width: 300px;
+  width: 100%;
+  justify-content: space-between;
 }
 
-form>h3 {
-
-  width: 200px;
-  
-
-}
 
 form>input {
-  /* background-color: yellow; */
   width: 300px;
+}
+
+form>button {
+
 }
 
 
 .description {
-/* background-color: green; */
-width: 400px;
-margin: 100px 0px 0px 100px;
+background-color: green;
+width: 75%;
 }
 
 .description>h3 {
@@ -69,12 +78,20 @@ margin: 100px 0px 0px 100px;
 
 .score-ctr {
   background-color: salmon;
-  width: 500px;
+  width: 80%;
 }
 
 .previousScore {
   background-color: red;
-  height: 200px;
-  width: 200px;
+height: 300px;
+  width: 80%;
 }
 
+.mainRight>button {
+  width: 200px;
+  height: 70px;
+  border-radius: 20px;
+  font-size: 2em;
+
+}
+ 
