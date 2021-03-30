@@ -56,39 +56,90 @@ heroHealth.textContent = "500";
 enemyHealth.textContent = "500"; */
 
 //TODO set up quesions and answers in arrays with correct answers identified
+
+function HeavyQuestion(question, answer1, answer2, answer3, answer4, correctAnswer) {
+    this.question = question;
+    this.answer1 = answer1;
+    this.answer2 = answer2;
+    this.answer3 = answer3;
+    this.answer4 = answer4;
+    this.correctAnswer = correctAnswer;
+    HeavyQuestion.allHeavyQuestions.push(this);
+};
+
+function MediumQuestion(question, answer1, answer2, answer3, answer4, correctAnswer) {
+    this.question = question;
+    this.answer1 = answer1;
+    this.answer2 = answer2;
+    this.answer3 = answer3;
+    this.answer4 = answer4;
+    this.correctAnswer = correctAnswer;
+    MediumQuestion.allMediumQuestions.push(this);
+}
+
+function LightQuestion(question, answer1, answer2, answer3, answer4, correctAnswer) {
+    this.question = question;
+    this.answer1 = answer1;
+    this.answer2 = answer2;
+    this.answer3 = answer3;
+    this.answer4 = answer4;
+    this.correctAnswer = correctAnswer;
+    LightQuestion.allLightQuestions.push(this);
+}
+
 let lightAttack = [];
 let mediumAttack = [];
 let heavyAttack = [];
 
+HeavyQuestion.allHeavyQuestions = [];
+MediumQuestion.allMediumQuestions = [];
+LightQuestion.allLightQuestions = [];
 //TODO set up a function that shows the heavy light medium attacks and pulls from the correct array
-let q1 = new HeavyQuestion("what?", "yes", "no", "not quite", "maybe");
+let qh1 = new HeavyQuestion("what?", "yes", "no", "not quite", "maybe", "answer1");
+let qh2 = new HeavyQuestion("what1?", "yes1", "no1", "not quite1", "maybe1", "answer1");
 
-function HeavyQuestion(question, answer1, answer2, answer3, answer4) {
-    this.question = question;
-    this.answer1 = answer1;
-    this.answer2 = answer2;
-    this.answer3 = answer3;
-    this.answer4 = answer4;
+let qm1 = new MediumQuestion("what1?", "yes1", "no1", "not quite1", "maybe1", "answer1");
+let qm2 = new MediumQuestion("what2?", "yes2", "no2", "not quite2", "maybe2", "answer1");
 
-}
+let ql1 = new LightQuestion("what1?", "yes1", "no1", "not quite1", "maybe1", "answer1");
+let ql2 = new LightQuestion("what2?", "yes2", "no2", "not quite2", "maybe2", "answer1");
 
-function MediumQuestion(question, answer1, answer2, answer3, answer4) {
-    this.question = question;
-    this.answer1 = answer1;
-    this.answer2 = answer2;
-    this.answer3 = answer3;
-    this.answer4 = answer4;
+// usedQuestions = [];
+
+function quizQuestion() {
+    const questionElem = document.getElementById("quiz-question");
+    questionElem.textContent = ql1.question;
 
 }
 
-function LightQuestion(question, answer1, answer2, answer3, answer4) {
-    this.question = question;
-    this.answer1 = answer1;
-    this.answer2 = answer2;
-    this.answer3 = answer3;
-    this.answer4 = answer4;
+function quizAnswer1() {
+    const answer1Elem = document.getElementById("answer1label");
+    answer1Elem.textContent = ql1.answer1;
+    console.log(answer1Elem);
+}
+
+function quizAnswer2() {
+    const answer2Elem = document.getElementById("answer2label");
+    answer2Elem.textContent = ql1.answer2;
 
 }
+function quizAnswer3() {
+    const answer3Elem = document.getElementById("answer3label");
+    answer3Elem.textContent = ql1.answer3;
+
+}
+function quizAnswer4() {
+    const answer4Elem = document.getElementById("answer4label");
+    answer4Elem.textContent = ql1.answer4;
+
+}
+
+quizQuestion();
+quizAnswer1();
+quizAnswer2();
+quizAnswer3();
+quizAnswer4();
+
 
 //TODO GAME
 //TODO generate random question
