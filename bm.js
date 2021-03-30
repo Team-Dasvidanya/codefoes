@@ -22,7 +22,7 @@ let enemy = new GenerateCharacter("JB", 500, "img/JB.png");
 
 //TODO pull username from localstorage
 function getUserName() {
-    let userName = localStorage.getItem('userName')
+    let userName = localStorage.getItem('userName');
 
     if (userName !== null) {
         let parsedUserName = userName /*JSON.parse(userName);*/
@@ -32,10 +32,16 @@ function getUserName() {
     }
 }
 
-// function setUserName() {
-//     let stringifiedName = JSON.stringify();
-//     localStorage.setItem('userName', stringifiedName);
-// }
+function setUserName(event) {
+    event.preventDefault();
+    let stringifiedName = JSON.stringify(event.target.userName.value);
+    console.log('eventValue', event.target.userName.value);
+    localStorage.setItem('userName', stringifiedName);
+ }
+
+const userNameFormSubmit = document.getElementById('userNameForm');
+userNameFormSubmit.addEventListener('submit', setUserName);
+console.log('username', userNameFormSubmit);
 
 //TODO initialize the health
 
@@ -43,11 +49,12 @@ function getUserName() {
 //     let healthTotal = 500;
 // }
 
-const heroHealth = document.getElementById("hero-health");
+/* const heroHealth = document.getElementById("hero-health");
 const enemyHealth = document.getElementById("enemy-health");
 console.log("heroHealth", heroHealth);
 heroHealth.textContent = "500";
-enemyHealth.textContent = "500";
+enemyHealth.textContent = "500"; */
+
 //TODO set up quesions and answers in arrays with correct answers identified
 let lightAttack = [];
 let mediumAttack = [];
