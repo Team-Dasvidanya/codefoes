@@ -1,15 +1,13 @@
+/* BODY ELEMENT */
+
 body {
   font-family: helvetica;
 }
 
 
-header {
-  background-color: rgb(60, 60, 60);
-  color: white;
-  height: 120px;
-  display: grid;
-  place-items: center;
-}
+
+
+/* HEADING, PARAGRAPH, FONTS */
 
 h1 {
   font-size: 4em;
@@ -27,27 +25,43 @@ h5 {
   font-size: 1.3em;
 }
 
+
+
+
+/* HEADER NAV */
+header {
+  background-color: rgb(60, 60, 60);
+  color: white;
+  height: 120px;
+  display: grid;
+  place-items: center;
+}
+
+
+
+
+
+/* HOME PAGE MAIN SECTION */
+
 main {
   background-color: darkgrey;
-  height: 800px;
+  height: 700px;
   margin: 30px 40px;
   display: flex;
-  /* justify-content: space-between; */
 }
 
 .mainLeft {
-  /* background-color: yellow; */
   width: 50%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  background-color: cadetblue;
 }
 
 
 form {
   display: flex;
-  /* background-color: yellow; */
   width: 100%;
   justify-content: space-around;
   align-items: flex-start;
@@ -56,7 +70,6 @@ form {
 form>div {
   display: flex;
   flex-direction: column;
-  /* background-color: blue; */
   width: 50%;
 }
 
@@ -74,9 +87,7 @@ form>div>button {
   font-size: 2em;
 }
 
-
 .description {
-  /* background-color: green; */
   width: 90%;
   position: relative;
   top: -100px;
@@ -92,25 +103,17 @@ form>div>button {
 
 
 .mainRight {
-  /* background-color: tan; */
   width: 50%;
-
-  /* display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center; */
+  background-color: blue;
 }
-
 
 .score-ctr {
   background-color: rgb(216, 216, 216);
-  width: 80%;
+  width: 60%;
   display: flex;
   flex-direction: column;
-  
   align-items: center;
   margin: 60px auto;
-
 }
 
 .score-ctr>h3 {
@@ -118,13 +121,11 @@ form>div>button {
 }
 
 .previousScore {
-  /* background-color: red; */
   height: 300px;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-
 }
 
 .mainRight>a>button {
@@ -136,11 +137,13 @@ form>div>button {
 }
 
 
+/* FOOTER SECTION - TEAM PROFILES */
+
 footer {
   background-color: lightcyan;
-margin-top: 40px;
-height: 350px;
-display: flex;
+  margin-top: 40px;
+  height: 350px;
+  display: flex;
 }
 
 .prof-ctr {
@@ -171,7 +174,71 @@ display: flex;
 
 
 
+/* BATTLE PAGE CSS */
+
+.flexy {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+
+}
+
+.quiz-ctr {
+  background-color: cornsilk;
+  width: 500px;
+  height: 40%;
+}
+
+.quiz-ctr>h3 {
+  margin: 20px 0px 30px 20px;
+}
+
+.quiz-ctr>input {
+  margin: 20px 30px;
+}
+
+
+.hero-ctr {
+  background-color: cyan;
+  width: 500px;
+  height: 40%;
+  display: flex;
+  align-items: center;
+}
+
+.hero-ctr>img {
+margin: 20px 20px;
+}
+
+.healthbar {
+  background-color: green;
+  width: 150px;
+  height: 10px;
+}
+
+.hero-info {
+display: flex;
+flex-direction: column;
+}
 
 
 
 
+.opponent-ctr {
+  background-color: cyan;
+  width: 500px;
+  height: 40%;
+  display: flex;
+  align-items: center;
+}
+
+.opponent-ctr>img {
+  margin: 20px 20px;
+  }
+
+.attack-ctr {
+  background-color: cornsilk;
+  width: 500px;
+  height: 200px;
+}
