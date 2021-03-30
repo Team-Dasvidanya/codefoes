@@ -36,6 +36,7 @@ function getUserName() {
 //     let stringifiedName = JSON.stringify();
 //     localStorage.setItem('userName', stringifiedName);
 // }
+
 //TODO initialize the health
 
 // function health() {
@@ -48,7 +49,39 @@ console.log("heroHealth", heroHealth);
 heroHealth.textContent = "500";
 enemyHealth.textContent = "500";
 //TODO set up quesions and answers in arrays with correct answers identified
+let lightAttack = [];
+let mediumAttack = [];
+let heavyAttack = [];
+
 //TODO set up a function that shows the heavy light medium attacks and pulls from the correct array
+let q1 = new HeavyQuestion("what?", "yes", "no", "not quite", "maybe");
+
+function HeavyQuestion(question, answer1, answer2, answer3, answer4) {
+    this.question = question;
+    this.answer1 = answer1;
+    this.answer2 = answer2;
+    this.answer3 = answer3;
+    this.answer4 = answer4;
+
+}
+
+function MediumQuestion(question, answer1, answer2, answer3, answer4) {
+    this.question = question;
+    this.answer1 = answer1;
+    this.answer2 = answer2;
+    this.answer3 = answer3;
+    this.answer4 = answer4;
+
+}
+
+function LightQuestion(question, answer1, answer2, answer3, answer4) {
+    this.question = question;
+    this.answer1 = answer1;
+    this.answer2 = answer2;
+    this.answer3 = answer3;
+    this.answer4 = answer4;
+
+}
 
 //TODO GAME
 //TODO generate random question
@@ -65,67 +98,147 @@ enemyHealth.textContent = "500";
 //TODO update homepage with scores from localstorage
 
 
-let gameData = {};
+// let gameData = {};
 
-let attackLevel = '',
-    curAttack = {},
-    randInt = 0,
-    defendProgressInt = null,
-    defendProgressComplete = 0,
-    progressInt = null,
-    progressComplete = 0;
+// let attackLevel = '',
+//     curAttack = {},
+//     randInt = 0,
+//     defendProgressInt = null,
+//     defendProgressComplete = 0,
+//     progressInt = null,
+//     progressComplete = 0;
 
-gameData = {
-    step: 1,
-    hero: {},
-    enemy: {}
-}
+// gameData = {
+//     step: 1,
+//     hero: {},
+//     enemy: {}
+// }
 
 //TODO set up a function that chooses a random question and its answers with a correct answer 
 
-let lightAttack = [];
-let mediumAttack = [];
-let heavyAttack = [];
-
-function HeavyQuestion(question, answer1, answer2, answer3, answer4) {
-    this.question = question;
-    this.answer1 = answer1;
-    this.answer2 = answer2;
-    this.answer3 = answer3;
-    this.answer4 = answer4;
-
-}
 
 
-function randomNum(max, min) {
-    // generate a random number
 
-    // min not required
-    if (min === undefined || min === '' || min === null) {
-        // min default value
-        min = 0;
-    }
+// function randomNum(max, min) {
+//     // generate a random number
 
-    // random number, yay
-    return Math.floor(Math.random() * (max - min) + min);
-}
+//     // min not required
+//     if (min === undefined || min === '' || min === null) {
+//         // min default value
+//         min = 0;
+//     }
 
-function attackMultiplier(attacker, curAttack) {
-    var defender = 'enemy';
-    if (attacker === 'enemy') {
-        defender = 'hero';
-    }
+//     // random number, yay
+//     return Math.floor(Math.random() * (max - min) + min);
+// }
 
-    if (gameData[defender].weakness.indexOf(gameData[attacker].type) >= 0) {
-        // weakness exists
-        curAttack.hp *= 2;
-    }
+// function attackMultiplier(attacker, curAttack) {
+//     var defender = 'enemy';
+//     if (attacker === 'enemy') {
+//         defender = 'hero';
+//     }
 
-    if (gameData[defender].resistance.indexOf(gameData[attacker].type) >= 0) {
-        // weakness exists
-        curAttack.hp /= 2;
-    }
+//     if (gameData[defender].weakness.indexOf(gameData[attacker].type) >= 0) {
+//         // weakness exists
+//         curAttack.hp *= 2;
+//     }
 
-    curAttack.hp = Math.floor(curAttack.hp);
-    return curAttack.hp;
-}
+//     if (gameData[defender].resistance.indexOf(gameData[attacker].type) >= 0) {
+//         // weakness exists
+//         curAttack.hp /= 2;
+//     }
+
+//     curAttack.hp = Math.floor(curAttack.hp);
+//     return curAttack.hp;
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* end */
