@@ -22,9 +22,9 @@ let enemy = new GenerateCharacter("JB", 500, "img/JB.png");
 function getUserName() {
     userName = localStorage.getItem('userName');
     console.log(userName);
-    
-        JSON.parse(userName);
-        return userName;  
+
+    JSON.parse(userName);
+    return userName;
 }
 
 getUserName();
@@ -32,24 +32,24 @@ getUserName();
 const heroName = document.getElementById('heroName');
 heroName.textContent = userName;
 
-const attackDiv = document.querySelector('.attack-ctr');
-attackDiv.addEventListener('click', generateQuestion);
+// const attackDiv = document.querySelector('.attack-ctr');
+// attackDiv.addEventListener('click', generateQuestion);
 
-function generateQuestion(event){
-    if (event.target.className === 'attack-item-light'){
-        console.log(event.target.className);
-        //generate Light question
-    }
-    else if (event.target.className === 'attack-item-medium'){
-        console.log(event.target.className);
-        //generate Medium question
-    }
-    else if (event.target.className === 'attack-item-heavy'){
-        console.log('test');
-       //generate Heavy question 
-    }
-}
-    
+// function generateQuestion(event){
+//     if (event.target.className === 'attack-item-light'){
+//         console.log(event.target.className);
+//         //generate Light question
+//     }
+//     else if (event.target.className === 'attack-item-medium'){
+//         console.log(event.target.className);
+//         //generate Medium question
+//     }
+//     else if (event.target.className === 'attack-item-heavy'){
+//         console.log('test');
+//        //generate Heavy question 
+//     }
+// }
+
 
 /* const lightAttackDiv = document.querySelector('.attack-item-light'); */
 
@@ -188,7 +188,7 @@ function pickNewLightQuestion() {
             break;
         }
     }
-    console.log (LightQuestion.allLightQuestions[0])
+    console.log(LightQuestion.allLightQuestions[0])
     return LightQuestion.allLightQuestions[0];
 
 }
