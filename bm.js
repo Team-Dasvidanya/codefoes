@@ -7,7 +7,7 @@
 //TODO PREGAME
 //TODONE generate characters
 
-console.log(getUserName());
+let userName = '';
 
 function GenerateCharacter(name, health, imgUrl) {
     this.name = name;
@@ -15,22 +15,54 @@ function GenerateCharacter(name, health, imgUrl) {
     this.imgUrl = imgUrl;
 }
 
-
-
 let hero = new GenerateCharacter(getUserName(), 500, "img/hero.png");
 let enemy = new GenerateCharacter("JB", 500, "img/JB.png");
 
 //TODO pull username from localstorage
 function getUserName() {
-    let userName = localStorage.getItem('userName');
+    userName = localStorage.getItem('userName');
+    console.log(userName);
+    
+        JSON.parse(userName);
+        return userName;  
+}
 
-    if (userName !== null) {
-        let parsedUserName = userName /*JSON.parse(userName);*/
-        return parsedUserName;
-    } else {
-        return null;
+getUserName();
+
+const heroName = document.getElementById('heroName');
+heroName.textContent = userName;
+
+const attackDiv = document.querySelector('.attack-ctr');
+attackDiv.addEventListener('click', generateQuestion);
+
+function generateQuestion(event){
+    if (event.target.className === 'attack-item-light'){
+        console.log(event.target.className);
+        //generate Light question
+    }
+    else if (event.target.className === 'attack-item-medium'){
+        console.log(event.target.className);
+        //generate Medium question
+    }
+    else if (event.target.className === 'attack-item-heavy'){
+        console.log('test');
+       //generate Heavy question 
     }
 }
+    
+
+/* const lightAttackDiv = document.querySelector('.attack-item-light'); */
+
+
+/* const mediumAttackDiv = document.querySelector('.attack-item-medium');
+
+const heavyAttackDiv = document.querySelector('.attack-item-heavy'); */
+
+
+
+/* const userNameFormSubmit = document.getElementById('userNameForm');
+userNameFormSubmit.addEventListener('submit', setUserName);
+console.log('username', userNameFormSubmit); */
 
 //TODO initialize the health
 
