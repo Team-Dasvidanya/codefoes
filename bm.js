@@ -83,6 +83,7 @@ let heavyAttack = [];
 HeavyQuestion.allHeavyQuestions = [];
 MediumQuestion.allMediumQuestions = [];
 LightQuestion.allLightQuestions = [];
+
 //TODO set up a function that shows the heavy light medium attacks and pulls from the correct array
 let qh1 = new HeavyQuestion("what?", "yes", "no", "not quite", "maybe", "answer1");
 let qh2 = new HeavyQuestion("what1?", "yes1", "no1", "not quite1", "maybe1", "answer1");
@@ -93,7 +94,81 @@ let qm2 = new MediumQuestion("what2?", "yes2", "no2", "not quite2", "maybe2", "a
 let ql1 = new LightQuestion("what1?", "yes1", "no1", "not quite1", "maybe1", "answer1");
 let ql2 = new LightQuestion("what2?", "yes2", "no2", "not quite2", "maybe2", "answer1");
 
+
+
 // usedQuestions = [];
+
+
+//TODO GAME
+
+let currentHealth = 500;
+let death = 0; 
+
+const handleClickOnAttack = function(event) {
+    if (currentHealth > death) {
+        const attackWeClicked = event.target;
+        const id = attackWeClicked.id;
+        if (id === "attack-item-light" || id === "attack-item-medium" || id === "attack-item-heavy") {
+            if (id === "attack-item-light"){
+                pickNewLightQuestion();
+            } else if (id === "attack-item-medium"){
+                pickNewMediumQuestion();
+            } else {
+                pickNewHeavyQuestion();
+        }
+    }
+}
+
+
+//TODO generate random question
+
+function shuffle(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * i)
+        const temp = array[i]
+        array[i] = array[j]
+        array[j] = temp
+    }
+}
+
+let prevLightQuestion = null;
+let prevMediumQuestion = null;
+let prevHeavyQuestion = null;
+
+function pickNewLightQuestion(){
+    const previousQuestion = prevLightQuestion;
+
+    shuffle(LightQuestion.all);
+    for (let question of LightQuestion.allLightQuestions) {
+        if (question !== previousQuestion) {
+            prevLightQuestion = question;
+            break;
+        }
+    }
+}
+function pickNewMediumQuestion(){
+    const previousQuestion = prevMediumQuestion;
+
+    shuffle(MediumQuestion.all);
+    for (let question of MediumQuestion.allMediumQuestions) {
+        if (question !== previousQuestion) {
+            prevMediumQuestion = question;
+            break;
+        }
+    }
+}
+function pickNewHeavyQuestion(){
+    const previousQuestion = prevHeavyQuestion;
+
+    shuffle(HeavyQuestion.all);
+    for (let question of HeavyQuestion.allHeavyQuestions) {
+        if (question !== previousQuestion) {
+            prevHeavyQuestion = question;
+            break;
+        }
+    }
+}
+
 
 function quizQuestion() {
     const questionElem = document.getElementById("quiz-question");
@@ -123,6 +198,14 @@ function quizAnswer4() {
 
 }
 
+
+//TODO add an event listener for clicks or submit on answers or set it up like a quiz form with radio buttons
+const attackElem = document.getElementById('attack-ctr');
+attackElem.addEventListener('click', handleClickOnAttack);
+
+// TODO: when user clicks on light attack, choose a constructed light question randomly from lightquestion array (LightQuestion.all) and populate it in the quiz-ctr div with the question, answers on radio buttons, and a correct answer specified. Once they submit, calculate if they got it right. If they did, remove health from enemy. If they did not, remove health from hero. If either hero or enemy is not dead, let them select another attack.
+
+
 quizQuestion();
 quizAnswer1();
 quizAnswer2();
@@ -130,9 +213,7 @@ quizAnswer3();
 quizAnswer4();
 
 
-//TODO GAME
-//TODO generate random question
-//TODO add an event listener for clicks or submit on answers or set it up like a quiz form with radio buttons
+
 //TODO set up a function that determines if the question was answered correctly
 //TODO set up a function that determines damage taken by characters
 //TODO set up a function that evalutes the health of hero and enemy to see if it is at or below 0 and generate the post game
