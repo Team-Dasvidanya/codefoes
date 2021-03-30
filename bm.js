@@ -1,7 +1,30 @@
 'use strict'
 
-// sources below https://www.sitepoint.com/simple-javascript-quiz/
+// sources below 
+// https://www.sitepoint.com/simple-javascript-quiz/
 // 
+
+//TODO PREGAME
+//TODO generate characters
+//TODO pull username from localstorage
+//TODO initialize the health
+//TODO set up quesions and answers in arrays with correct answers identified
+//TODO set up a function that shows the heavy light medium attacks and pulls from the correct array
+
+//TODO GAME
+//TODO generate random question
+//TODO add an event listener for clicks or submit on answers or set it up like a quiz form with radio buttons
+//TODO set up a function that determines if the question was answered correctly
+//TODO set up a function that determines damage taken by characters
+//TODO set up a function that evalutes the health of hero and enemy to see if it is at or below 0 and generate the post game
+
+//TODO POST GAME
+//TODO failure and victory displays
+//TODO store the result of the game in localstorage
+//TODO set up scoring function
+//TODO return to homepage button
+//TODO update homepage with scores from localstorage
+
 
 let gameData = {};
 

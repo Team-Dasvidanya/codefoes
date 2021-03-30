@@ -8,3 +8,8 @@
     align-items: center;
     justify-content: center;
 }
+
+main {
+    width: 1280px;
+    margin: 0 auto;
+}
