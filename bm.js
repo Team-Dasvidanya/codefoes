@@ -5,9 +5,43 @@
 // 
 
 //TODO PREGAME
-//TODO generate characters
+//TODONE generate characters
+
+function GenerateCharacter(name, health, imgUrl) {
+    this.name = name;
+    this.health = health;
+    this.imgUrl = imgUrl;
+}
+
+let hero = new GenerateCharacter("userName", 500, "img/hero.png");
+let enemy = new GenerateCharacter("JB", 500, "img/JB.png");
+
 //TODO pull username from localstorage
+function getUserName() {
+    let userName = localStorage.getItem('userName')
+
+    if (userName !== null) {
+        let parsedUserName = JSON.parse(userName);
+        return parsedUserName;
+    } else {
+        return null;
+    }
+}
+
+function setUserName() {
+    let stringifiedName = JSON.stringify();
+    localStorage.setItem('userName', stringifiedName);
+}
 //TODO initialize the health
+
+// function health() {
+//     let healthTotal = 500;
+// }
+
+const heroHealth = document.getElementById("hero-health");
+const enemyHealth = document.getElementById("enemy-health");
+heroHealth.textContent = "500";
+enemyHealth.textContent = "500";
 //TODO set up quesions and answers in arrays with correct answers identified
 //TODO set up a function that shows the heavy light medium attacks and pulls from the correct array
 
