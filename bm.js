@@ -36,6 +36,7 @@ function getUserName() {
 //     let stringifiedName = JSON.stringify();
 //     localStorage.setItem('userName', stringifiedName);
 // }
+
 //TODO initialize the health
 
 // function health() {
@@ -97,56 +98,147 @@ function LightQuestion(question, answer1, answer2, answer3, answer4) {
 //TODO update homepage with scores from localstorage
 
 
-let gameData = {};
+// let gameData = {};
 
-let attackLevel = '',
-    curAttack = {},
-    randInt = 0,
-    defendProgressInt = null,
-    defendProgressComplete = 0,
-    progressInt = null,
-    progressComplete = 0;
+// let attackLevel = '',
+//     curAttack = {},
+//     randInt = 0,
+//     defendProgressInt = null,
+//     defendProgressComplete = 0,
+//     progressInt = null,
+//     progressComplete = 0;
 
-gameData = {
-    step: 1,
-    hero: {},
-    enemy: {}
-}
+// gameData = {
+//     step: 1,
+//     hero: {},
+//     enemy: {}
+// }
 
 //TODO set up a function that chooses a random question and its answers with a correct answer 
 
 
 
 
-function randomNum(max, min) {
-    // generate a random number
+// function randomNum(max, min) {
+//     // generate a random number
 
-    // min not required
-    if (min === undefined || min === '' || min === null) {
-        // min default value
-        min = 0;
-    }
+//     // min not required
+//     if (min === undefined || min === '' || min === null) {
+//         // min default value
+//         min = 0;
+//     }
 
-    // random number, yay
-    return Math.floor(Math.random() * (max - min) + min);
-}
+//     // random number, yay
+//     return Math.floor(Math.random() * (max - min) + min);
+// }
 
-function attackMultiplier(attacker, curAttack) {
-    var defender = 'enemy';
-    if (attacker === 'enemy') {
-        defender = 'hero';
-    }
+// function attackMultiplier(attacker, curAttack) {
+//     var defender = 'enemy';
+//     if (attacker === 'enemy') {
+//         defender = 'hero';
+//     }
 
-    if (gameData[defender].weakness.indexOf(gameData[attacker].type) >= 0) {
-        // weakness exists
-        curAttack.hp *= 2;
-    }
+//     if (gameData[defender].weakness.indexOf(gameData[attacker].type) >= 0) {
+//         // weakness exists
+//         curAttack.hp *= 2;
+//     }
 
-    if (gameData[defender].resistance.indexOf(gameData[attacker].type) >= 0) {
-        // weakness exists
-        curAttack.hp /= 2;
-    }
+//     if (gameData[defender].resistance.indexOf(gameData[attacker].type) >= 0) {
+//         // weakness exists
+//         curAttack.hp /= 2;
+//     }
 
-    curAttack.hp = Math.floor(curAttack.hp);
-    return curAttack.hp;
-}
+//     curAttack.hp = Math.floor(curAttack.hp);
+//     return curAttack.hp;
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* end */
