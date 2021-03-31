@@ -233,18 +233,22 @@ const handleClickOnSubmit = function (event) {
 
     if (selectedAnswer === currentQuestion.correctAnswer) {
         enemy.health -= currentQuestion.damage
-        alert('you got it');
+        // alert('you got it');
     } else if (selectedAnswer !== currentQuestion.correctAnswer) {
         hero.health -= 50;
     }
 
     if (hero.health <= 0) {
-        alert('YOU DIED')
+        let lost = "YOU DIED.";
+        localStorage.setItem("endresult", JSON.stringify(lost));
         answerSubmitButton.removeEventListener('submit', handleClickOnSubmit)
+        window.location.replace("results.html");
     }
     if (enemy.health <= 0) {
-        alert('YOU WON')
+        let win = "You Won!";
+        localStorage.setItem("endresult", JSON.stringify(win));
         answerSubmitButton.removeEventListener('submit', handleClickOnSubmit)
+        window.location.replace("results.html");
     }
     console.log(event.target.answer.value, "test");
 };
