@@ -198,7 +198,7 @@ footer {
 }
 
 .quiz-ctr-form {
-  display: block;
+  display: none;
   font-size: .7em;
 }
 
