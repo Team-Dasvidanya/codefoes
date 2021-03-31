@@ -114,6 +114,9 @@ let currentHealthEnemy = enemy.health;
 let death = 0;
 let currentQuestion = null;
 
+
+
+
 const handleClickOnAttack = function (event) {
     if (hero.health && enemy.health > death) {
         const attackWeClicked = event.target;
@@ -222,6 +225,18 @@ function quizAnswer4(selectedQuestion) {
 
 }
 
+
+
+// Render Character Health on Screen to 500 (DEFAULT)
+
+let heroHealthCtr = document.getElementById('hero-health');
+let enemyHealthCtr = document.getElementById('enemy-health');
+
+heroHealthCtr.textContent = hero.health;
+enemyHealthCtr.textContent = enemy.health;
+
+
+
 //TODONE remove event listener when click happens and reapply when submit button is clicked/after damage is taken
 //TODONE set up a function that determines if the question was answered correctly
 //1. TODO set up a function that determines damage taken by characters
@@ -232,10 +247,14 @@ const handleClickOnSubmit = function (event) {
     let selectedAnswer = event.target.answer.value
 
     if (selectedAnswer === currentQuestion.correctAnswer) {
-        enemy.health -= currentQuestion.damage
-        // alert('you got it');
+        enemy.health -= currentQuestion.damage;
+        enemyHealthCtr.textContent = enemy.health;
+
+        alert('you got it');
     } else if (selectedAnswer !== currentQuestion.correctAnswer) {
         hero.health -= 50;
+        heroHealthCtr.textContent = hero.health;
+        alert('you didn');
     }
 
     if (hero.health <= 0) {
