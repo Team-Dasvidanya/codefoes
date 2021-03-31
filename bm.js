@@ -145,13 +145,13 @@ const handleClickOnAttack = function (event) {
         if (id === "attack-item-light" || id === "attack-item-medium" || id === "attack-item-heavy") {
             if (id === "attack-item-light") {
                 currentQuestion = pickNewLightQuestion();
-                removeEventListener('click', handleClickOnAttack);
+                attackElem.removeEventListener('click', handleClickOnAttack);
             } else if (id === "attack-item-medium") {
                 currentQuestion = pickNewMediumQuestion();
-                removeEventListener('click', handleClickOnAttack);
+                attackElem.removeEventListener('click', handleClickOnAttack);
             } else {
                 currentQuestion = pickNewHeavyQuestion();
-                removeEventListener('click', handleClickOnAttack);
+                attackElem.removeEventListener('click', handleClickOnAttack);
             }
         }
         quizQuestion(currentQuestion);
@@ -249,10 +249,21 @@ function quizAnswer4(selectedQuestion) {
 
 }
 
+const handleClickOnSubmit = function(event){
+    attackElem.addEventListener('click', handleClickOnAttack);
+    console.log(event.target); 
+};
+
 
 //TODO add an event listener for clicks or submit on answers or set it up like a quiz form with radio buttons
 const attackElem = document.getElementById('attack-ctr');
 attackElem.addEventListener('click', handleClickOnAttack);
+
+const answerSubmitButton = document.querySelector('.quiz-ctr>button');
+console.log(answerSubmitButton);
+answerSubmitButton.addEventListener('click', handleClickOnSubmit);
+
+
 
 //TODO remove event listener when click happens and reapply when submit button is clicked/after damage is taken
 
