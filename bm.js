@@ -32,37 +32,9 @@ getUserName();
 const heroName = document.getElementById('heroName');
 heroName.textContent = JSON.parse(userName);
 
-// const attackDiv = document.querySelector('.attack-ctr');
-// attackDiv.addEventListener('click', generateQuestion);
-
-// function generateQuestion(event){
-//     if (event.target.className === 'attack-item-light'){
-//         console.log(event.target.className);
-//         //generate Light question
-//     }
-//     else if (event.target.className === 'attack-item-medium'){
-//         console.log(event.target.className);
-//         //generate Medium question
-//     }
-//     else if (event.target.className === 'attack-item-heavy'){
-//         console.log('test');
-//        //generate Heavy question 
-//     }
-// }
-
-
-/* const lightAttackDiv = document.querySelector('.attack-item-light'); */
-
-
-/* const mediumAttackDiv = document.querySelector('.attack-item-medium');
-
-const heavyAttackDiv = document.querySelector('.attack-item-heavy'); */
 
 
 
-/* const userNameFormSubmit = document.getElementById('userNameForm');
-userNameFormSubmit.addEventListener('submit', setUserName);
-console.log('username', userNameFormSubmit); */
 
 //TODO initialize the health
 
@@ -85,6 +57,7 @@ function HeavyQuestion(question, answer1, answer2, answer3, answer4, correctAnsw
     this.answer3 = answer3;
     this.answer4 = answer4;
     this.correctAnswer = correctAnswer;
+    this.damage = 200;
     HeavyQuestion.allHeavyQuestions.push(this);
 };
 
@@ -95,6 +68,7 @@ function MediumQuestion(question, answer1, answer2, answer3, answer4, correctAns
     this.answer3 = answer3;
     this.answer4 = answer4;
     this.correctAnswer = correctAnswer;
+    this.damage = 100;
     MediumQuestion.allMediumQuestions.push(this);
 }
 
@@ -105,6 +79,7 @@ function LightQuestion(question, answer1, answer2, answer3, answer4, correctAnsw
     this.answer3 = answer3;
     this.answer4 = answer4;
     this.correctAnswer = correctAnswer;
+    this.damage = 50;
     LightQuestion.allLightQuestions.push(this);
 }
 
@@ -133,12 +108,14 @@ let ql2 = new LightQuestion("what2?", "yes2", "no2", "not quite2", "maybe2", "an
 
 //TODO GAME
 
-let currentHealth = 500;
+let currentHealthHero = hero.health;
+let currentHealthEnemy = enemy.health;
+// console.log(currentHealth);
 let death = 0;
 let currentQuestion = null;
 
 const handleClickOnAttack = function (event) {
-    if (currentHealth > death) {
+    if (hero.health && enemy.health > death) {
         const attackWeClicked = event.target;
         const id = attackWeClicked.id;
         console.log(attackWeClicked);
@@ -255,7 +232,19 @@ const handleClickOnSubmit = function (event) {
     let selectedAnswer = event.target.answer.value
 
     if (selectedAnswer === currentQuestion.correctAnswer) {
-        alert('you got it')
+        enemy.health -= currentQuestion.damage
+        alert('you got it');
+    } else if (selectedAnswer !== currentQuestion.correctAnswer) {
+        hero.health -= 50;
+    }
+
+    if (hero.health <= 0) {
+        alert('YOU DIED')
+        answerSubmitButton.removeEventListener('submit', handleClickOnSubmit)
+    }
+    if (enemy.health <= 0) {
+        alert('YOU WON')
+        answerSubmitButton.removeEventListener('submit', handleClickOnSubmit)
     }
     console.log(event.target.answer.value, "test");
 };
