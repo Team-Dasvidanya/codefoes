@@ -92,15 +92,24 @@ MediumQuestion.allMediumQuestions = [];
 LightQuestion.allLightQuestions = [];
 
 //TODO set up a function that shows the heavy light medium attacks and pulls from the correct array
-let qh1 = new HeavyQuestion("what?", "yes", "no", "not quite", "maybe", "answer1");
-let qh2 = new HeavyQuestion("what1?", "yes1", "no1", "not quite1", "maybe1", "answer1");
+new HeavyQuestion("Which of the following best describes fixed positioning?", "Relative to the box’s original location, the box is offset by a certain distance", "The box is placed relative to its containing box", "The box is held in the same location even if the page is scrolled", "Subsequent text is flowed around the positioned box, according to the box’s new left or right location", "answer3");
+new HeavyQuestion("What command would we use to create and switch to a new branch called debug in Git?", "git checkout debug", "git checkout -b debug", "git branch new debug", "git branch debug", "answer2");
+new HeavyQuestion("In an object functions become known as what?", "a property", "a method", "a variable", "a string", "answer2");
 
-let qm1 = new MediumQuestion("what1?", "yes1", "no1", "not quite1", "maybe1", "answer1");
-let qm2 = new MediumQuestion("what2?", "yes2", "no2", "not quite2", "maybe2", "answer1");
 
-let ql1 = new LightQuestion("what1?", "yes1", "no1", "not quite1", "maybe1", "answer1");
-let ql2 = new LightQuestion("what2?", "yes2", "no2", "not quite2", "maybe2", "answer1");
+new MediumQuestion(`In the following line of code: let car = newCar(‘Subaru’, 10);
+"Subaru” and 10 are:`, "Insantations", "Function expressions", "Arguments", "Variables", "answer3");
+new MediumQuestion("What is the name we call a function that is associated with/attached to an Object?", "A method", "An ability", "An instance", "An action", "answer1");
+new MediumQuestion("Which is not a data type?", "string", "array", "boolean", "attribute", "answer4");
+new MediumQuestion("When writing clean code, which should you avoid?", "step by step instructions", "syntax highlighting", "no whitespace", "fixed-width font", "answer3");
 
+new LightQuestion("Your best friend has an account on GitHub with a username of “neatdad22.” He has a repository called “dadjokes.” In order to download the “dadjokes” Git repository on your local machine for the first time, which of the following Git commands would you enter?", "git pull origin https://github.com/neatdad22/dadjokes.git", "git merge https://github.com/neatdad22/dadjokes.git", "git init https://github.com/neatdad22/dadjokes.git", "git clone https://github.com/neatdad22/dadjokes.git", "answer4");
+new LightQuestion("What property is used to change the text color of an element?", "textcolor", "font-color", "fontcolor", "color", "answer4");
+new LightQuestion("Which is a correct example of concatenation in JavaScript?", "'hello' + 'there' userName", "I like to eat + bananas", "'dogs run through the parking lot all happy' + and stuff", "'I brush my ' + bodyPart + ' in the morning'", "answer4");
+new LightQuestion("What tag do you need to run JavaScript code in an html file?", "<script></script>", "<javascript></javascript>", "<js></js>", "<p></p>", "answer4");
+new LightQuestion("Which defines the structure of a webpage?", "HTML", "JS", "CSS", "GitHub", "answer1");
+new LightQuestion("What Unix command would create a new directory called thursday?", "new directory thursday", "mkdir thursday", "directory thursday", "newdir thursday", "answer 2");
+new LightQuestion("Which is not an example of a JavaScript statement?", "cookieCount *= 5;", "var NumBooks;", "1 =! loneliestNumber;", "userName = userName.toUpperCase();", "answer3");
 
 
 // usedQuestions = [];
