@@ -135,9 +135,9 @@ let ql2 = new LightQuestion("what2?", "yes2", "no2", "not quite2", "maybe2", "an
 
 let currentHealth = 500;
 let death = 0;
+let currentQuestion = null;
 
 const handleClickOnAttack = function (event) {
-    let currentQuestion = null;
     if (currentHealth > death) {
         const attackWeClicked = event.target;
         const id = attackWeClicked.id;
@@ -161,10 +161,6 @@ const handleClickOnAttack = function (event) {
         quizAnswer4(currentQuestion);
     }
 }
-
-
-
-
 
 //TODO generate random question
 
@@ -193,8 +189,8 @@ function pickNewLightQuestion() {
     }
     console.log(LightQuestion.allLightQuestions[0])
     return LightQuestion.allLightQuestions[0];
-
 }
+
 function pickNewMediumQuestion() {
     const previousQuestion = prevMediumQuestion;
 
@@ -249,9 +245,16 @@ function quizAnswer4(selectedQuestion) {
 
 }
 
-const handleClickOnSubmit = function(event){
+const handleClickOnSubmit = function (event) {
     attackElem.addEventListener('click', handleClickOnAttack);
-    console.log(event.target); 
+    event.preventDefault();
+
+    let selectedAnswer = event.target.answer.value
+
+    if (selectedAnswer === currentQuestion.correctAnswer) {
+        alert('you got it')
+    }
+    console.log(event.target.answer.value, "test");
 };
 
 
@@ -259,9 +262,9 @@ const handleClickOnSubmit = function(event){
 const attackElem = document.getElementById('attack-ctr');
 attackElem.addEventListener('click', handleClickOnAttack);
 
-const answerSubmitButton = document.querySelector('.quiz-ctr>button');
+const answerSubmitButton = document.getElementById('quiz-ctr-form');
 console.log(answerSubmitButton);
-answerSubmitButton.addEventListener('click', handleClickOnSubmit);
+answerSubmitButton.addEventListener('submit', handleClickOnSubmit);
 
 
 
