@@ -245,6 +245,9 @@ function quizAnswer4(selectedQuestion) {
 
 }
 
+//TODONE remove event listener when click happens and reapply when submit button is clicked/after damage is taken
+//TODONE set up a function that determines if the question was answered correctly
+//1. TODO set up a function that determines damage taken by characters
 const handleClickOnSubmit = function (event) {
     attackElem.addEventListener('click', handleClickOnAttack);
     event.preventDefault();
@@ -258,7 +261,7 @@ const handleClickOnSubmit = function (event) {
 };
 
 
-//TODO add an event listener for clicks or submit on answers or set it up like a quiz form with radio buttons
+//TODONE add an event listener for clicks or submit on answers or set it up like a quiz form with radio buttons
 const attackElem = document.getElementById('attack-ctr');
 attackElem.addEventListener('click', handleClickOnAttack);
 
@@ -266,32 +269,24 @@ const answerSubmitButton = document.getElementById('quiz-ctr-form');
 console.log(answerSubmitButton);
 answerSubmitButton.addEventListener('submit', handleClickOnSubmit);
 
-
-
-//TODO remove event listener when click happens and reapply when submit button is clicked/after damage is taken
-
 // TODO: when user clicks on light attack, choose a constructed light question randomly from lightquestion array (LightQuestion.all) and populate it in the quiz-ctr div with the question, answers on radio buttons, and a correct answer specified. Once they submit, calculate if they got it right. If they did, remove health from enemy. If they did not, remove health from hero. If either hero or enemy is not dead, let them select another attack.
 
 
 
-//TODO set up a function that determines if the question was answered correctly
 
-//TODO set up a function that determines damage taken by characters
-
-//TODO set up a function that evalutes the health of hero and enemy to see if it is at or below 0 and generate the post game
 
 function characterHealth() {
 
 }
 
+//2. TODO set up a function that evalutes the health of hero and enemy to see if it is at or below 0 and generate the post game
 //TODO POST GAME
-
-//TODO failure and victory displays
-// When game is finished total the number of correct answers and give score along with a you lose or win h1
-//TODO store the result of the game in localstorage
-//TODO set up scoring function
-//TODO return to homepage button
-//TODO update homepage with scores from localstorage
+// 3. TODO store game data for correct answers in localstorage
+//TODO 4. failure and victory displays on results.html
+// 5. When game is finished total the number of correct answers and give score along with a you lose or win h1
+//TODO set up scoring function STRECH GOAL
+//TODO 6. return to homepage button
+//TODO 7. update homepage with scores from localstorage
 
 
 // let gameData = {};
