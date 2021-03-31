@@ -248,20 +248,21 @@ let enemyHealthBar = document.getElementById('enemyHealthBar');
 heroHealthCtr.textContent = hero.health;
 enemyHealthCtr.textContent = enemy.health;
 
-
+// Initialize Hero percentage to 100%
 let heroPercent = percentageHealth(hero);
 let enemyPercent = percentageHealth(enemy);
 
+//Assign hero percentage as width value for the healthbar div width
 heroHealthBar.style.width = `${heroPercent}%`;
 enemyHealthBar.style.width = `${enemyPercent}%`;
 
-
+//function to calculate enemy and hero's percentage of health
 function percentageHealth (person) {
     let percentHealth = (person.health / 500)*100;
     return percentHealth;
 }
 
-// console.log(percentageHealth());
+
 
 
 
@@ -275,23 +276,34 @@ const handleClickOnSubmit = function (event) {
 
     let selectedAnswer = event.target.answer.value
 
+
     if (selectedAnswer === currentQuestion.correctAnswer) {
         enemy.health -= currentQuestion.damage;
         enemyHealthCtr.textContent = enemy.health;
         
+        // calculate hero percentage and assign width to health bar div
         enemyPercent = percentageHealth(enemy);
         enemyHealthBar.style.width = `${enemyPercent}%`;
 
-
-
+        // if health is below 150, turn red
+        if (enemy.health < 150) {
+            enemyHealthBar.style.backgroundColor = 'red';
+          }
 
         alert('you got it');
+
     } else if (selectedAnswer !== currentQuestion.correctAnswer) {
         hero.health -= 50;
         heroHealthCtr.textContent = hero.health;
         
+        // calculate hero percentage and assign width to health bar div
         heroPercent = percentageHealth(hero);
         heroHealthBar.style.width = `${heroPercent}%`;
+
+        // if health is below 150, turn red
+        if (hero.health < 150) {
+            heroHealthBar.style.backgroundColor = 'red';
+        }
 
         alert('you didn');
     }

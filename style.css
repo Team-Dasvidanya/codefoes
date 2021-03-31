@@ -231,7 +231,7 @@ label {
 
 /* Hero Container */
 .hero-ctr {
-  background-color: cyan;
+  background-color: lightgrey;
   width: 500px;
   height: 40%;
   display: flex;
@@ -243,7 +243,7 @@ margin: 20px 20px;
 }
 
 .healthbar {
-  background-color: green;
+  background-color: white;
   width: 150px;
   height: 10px;
   border-radius: 20px;
@@ -251,7 +251,7 @@ margin: 20px 20px;
 }
 
 #heroHealthBar {
-  background-color: yellow;
+  background-color: rgb(15, 169, 15);
   height: 100%;
   width: 0%;
   transition: 3s;
@@ -260,7 +260,7 @@ margin: 20px 20px;
 }
 
 #enemyHealthBar {
-background-color: coral;
+background-color: rgb(15, 169, 15);
 height: 100%;
 width: 0%;
 border-radius: 20px;
@@ -280,7 +280,7 @@ flex-direction: column;
 
 /* Opponent Container */
 .opponent-ctr {
-  background-color: cyan;
+  background-color: lightgrey;
   width: 500px;
   height: 40%;
   display: flex;
