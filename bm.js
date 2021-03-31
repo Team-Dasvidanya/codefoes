@@ -248,15 +248,17 @@ let enemyHealthBar = document.getElementById('enemyHealthBar');
 heroHealthCtr.textContent = hero.health;
 enemyHealthCtr.textContent = enemy.health;
 
-heroHealthBar.style.width = '100%';
-enemyHealthBar.style.width = '100%';
 
-// heroHealthBar.style.width = `'${percentageOfHealth}'`;
+let heroPercent = percentageHealth(hero);
+let enemyPercent = percentageHealth(enemy);
+
+heroHealthBar.style.width = `${heroPercent}%`;
+enemyHealthBar.style.width = `${enemyPercent}%`;
 
 
-function percentageHealth () {
-    let percentHealth = (enemy.health / 500)*100;
-    return percentageHealth;
+function percentageHealth (person) {
+    let percentHealth = (person.health / 500)*100;
+    return percentHealth;
 }
 
 // console.log(percentageHealth());
@@ -276,6 +278,10 @@ const handleClickOnSubmit = function (event) {
     if (selectedAnswer === currentQuestion.correctAnswer) {
         enemy.health -= currentQuestion.damage;
         enemyHealthCtr.textContent = enemy.health;
+        
+        enemyPercent = percentageHealth(enemy);
+        enemyHealthBar.style.width = `${enemyPercent}%`;
+
 
 
 
@@ -283,6 +289,9 @@ const handleClickOnSubmit = function (event) {
     } else if (selectedAnswer !== currentQuestion.correctAnswer) {
         hero.health -= 50;
         heroHealthCtr.textContent = hero.health;
+        
+        heroPercent = percentageHealth(hero);
+        heroHealthBar.style.width = `${heroPercent}%`;
 
         alert('you didn');
     }
