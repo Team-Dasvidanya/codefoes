@@ -235,7 +235,30 @@ margin: 20px 20px;
   background-color: green;
   width: 150px;
   height: 10px;
+  border-radius: 20px;
+
 }
+
+#heroHealthBar {
+  background-color: yellow;
+  height: 100%;
+  width: 0%;
+  transition: 3s;
+  border-radius: 20px;
+
+}
+
+#enemyHealthBar {
+background-color: coral;
+height: 100%;
+width: 0%;
+border-radius: 20px;
+transition: 3s;
+}
+
+
+
+
 
 .hero-info {
 display: flex;
@@ -322,10 +345,9 @@ flex-direction: column;
 #hero-head {
   width: 100px;
   margin-top: 100px;
-  animation: youDied 4s ease forwards;
+  
   
 }
-
 
 
 
