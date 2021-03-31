@@ -232,8 +232,26 @@ function quizAnswer4(selectedQuestion) {
 let heroHealthCtr = document.getElementById('hero-health');
 let enemyHealthCtr = document.getElementById('enemy-health');
 
+let heroHealthBar = document.getElementById('heroHealthBar');
+let enemyHealthBar = document.getElementById('enemyHealthBar');
+
+
 heroHealthCtr.textContent = hero.health;
 enemyHealthCtr.textContent = enemy.health;
+
+heroHealthBar.style.width = '100%';
+enemyHealthBar.style.width = '100%';
+
+// heroHealthBar.style.width = `'${percentageOfHealth}'`;
+
+
+function percentageHealth () {
+    let percentHealth = (enemy.health / 500)*100;
+    return percentageHealth;
+}
+
+// console.log(percentageHealth());
+
 
 
 
@@ -250,10 +268,13 @@ const handleClickOnSubmit = function (event) {
         enemy.health -= currentQuestion.damage;
         enemyHealthCtr.textContent = enemy.health;
 
+
+
         alert('you got it');
     } else if (selectedAnswer !== currentQuestion.correctAnswer) {
         hero.health -= 50;
         heroHealthCtr.textContent = hero.health;
+
         alert('you didn');
     }
 
