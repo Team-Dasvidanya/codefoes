@@ -266,9 +266,14 @@ attackElem.addEventListener('click', handleClickOnAttack);
 
 //TODO set up a function that evalutes the health of hero and enemy to see if it is at or below 0 and generate the post game
 
+function charaterHealth() {
+
+}
+
 //TODO POST GAME
 
 //TODO failure and victory displays
+// When game is finished total the number of correct answers and give score along with a you lose or win h1
 //TODO store the result of the game in localstorage
 //TODO set up scoring function
 //TODO return to homepage button
