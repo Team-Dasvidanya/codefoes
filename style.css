@@ -207,8 +207,17 @@ footer {
   font-size: 1em;
 }
 
-.quiz-ctr-form>input {
+/* .quiz-ctr-form>input {
   margin: 10px 30px;
+} */
+
+input[type=radio] {
+  float: left;
+}
+
+label {
+  margin-left: 30px;
+  display: block;
 }
 
 .quiz-ctr-form>button {
@@ -217,6 +226,8 @@ footer {
   background-color: blue;
   color: white;
 }
+
+
 
 /* Hero Container */
 .hero-ctr {
