@@ -197,15 +197,19 @@ footer {
   height: 40%;
 }
 
-.quiz-ctr>h3 {
+.quiz-ctr-form {
+  display: block;
+}
+
+.quiz-ctr-form>h3 {
   margin: 20px 0px 30px 20px;
 }
 
-.quiz-ctr>input {
+.quiz-ctr-form>input {
   margin: 20px 30px;
 }
 
-.quiz-ctr>button {
+.quiz-ctr-form>button {
   width: 80px;
   height: 25px;
   background-color: black;
