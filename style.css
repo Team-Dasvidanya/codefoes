@@ -199,20 +199,22 @@ footer {
 
 .quiz-ctr-form {
   display: block;
+  font-size: .7em;
 }
 
 .quiz-ctr-form>h3 {
   margin: 20px 0px 30px 20px;
+  font-size: 1em;
 }
 
 .quiz-ctr-form>input {
-  margin: 20px 30px;
+  margin: 10px 30px;
 }
 
 .quiz-ctr-form>button {
   width: 80px;
   height: 25px;
-  background-color: black;
+  background-color: blue;
   color: white;
 }
 
