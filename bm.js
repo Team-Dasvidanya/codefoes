@@ -2,7 +2,7 @@
 
 // sources below 
 // https://www.sitepoint.com/simple-javascript-quiz/
-// 
+// questions taken from canvas 201 quizzes
 
 //TODO PREGAME
 //TODONE generate characters
@@ -22,34 +22,34 @@ let enemy = new GenerateCharacter("JB", 500, "img/JB.png");
 function getUserName() {
     userName = localStorage.getItem('userName');
     console.log(userName);
-    
-        JSON.parse(userName);
-        return userName;  
+
+    JSON.parse(userName);
+    return userName;
 }
 
 getUserName();
 
 const heroName = document.getElementById('heroName');
-heroName.textContent = userName;
+heroName.textContent = JSON.parse(userName);
 
-const attackDiv = document.querySelector('.attack-ctr');
-attackDiv.addEventListener('click', generateQuestion);
+// const attackDiv = document.querySelector('.attack-ctr');
+// attackDiv.addEventListener('click', generateQuestion);
 
-function generateQuestion(event){
-    if (event.target.className === 'attack-item-light'){
-        console.log(event.target.className);
-        //generate Light question
-    }
-    else if (event.target.className === 'attack-item-medium'){
-        console.log(event.target.className);
-        //generate Medium question
-    }
-    else if (event.target.className === 'attack-item-heavy'){
-        console.log('test');
-       //generate Heavy question 
-    }
-}
-    
+// function generateQuestion(event){
+//     if (event.target.className === 'attack-item-light'){
+//         console.log(event.target.className);
+//         //generate Light question
+//     }
+//     else if (event.target.className === 'attack-item-medium'){
+//         console.log(event.target.className);
+//         //generate Medium question
+//     }
+//     else if (event.target.className === 'attack-item-heavy'){
+//         console.log('test');
+//        //generate Heavy question 
+//     }
+// }
+
 
 /* const lightAttackDiv = document.querySelector('.attack-item-light'); */
 
@@ -145,10 +145,13 @@ const handleClickOnAttack = function (event) {
         if (id === "attack-item-light" || id === "attack-item-medium" || id === "attack-item-heavy") {
             if (id === "attack-item-light") {
                 currentQuestion = pickNewLightQuestion();
+                removeEventListener('click', handleClickOnAttack);
             } else if (id === "attack-item-medium") {
                 currentQuestion = pickNewMediumQuestion();
+                removeEventListener('click', handleClickOnAttack);
             } else {
                 currentQuestion = pickNewHeavyQuestion();
+                removeEventListener('click', handleClickOnAttack);
             }
         }
         quizQuestion(currentQuestion);
@@ -188,7 +191,7 @@ function pickNewLightQuestion() {
             break;
         }
     }
-    console.log (LightQuestion.allLightQuestions[0])
+    console.log(LightQuestion.allLightQuestions[0])
     return LightQuestion.allLightQuestions[0];
 
 }
@@ -251,15 +254,20 @@ function quizAnswer4(selectedQuestion) {
 const attackElem = document.getElementById('attack-ctr');
 attackElem.addEventListener('click', handleClickOnAttack);
 
+//TODO remove event listener when click happens and reapply when submit button is clicked/after damage is taken
+
 // TODO: when user clicks on light attack, choose a constructed light question randomly from lightquestion array (LightQuestion.all) and populate it in the quiz-ctr div with the question, answers on radio buttons, and a correct answer specified. Once they submit, calculate if they got it right. If they did, remove health from enemy. If they did not, remove health from hero. If either hero or enemy is not dead, let them select another attack.
 
 
 
 //TODO set up a function that determines if the question was answered correctly
+
 //TODO set up a function that determines damage taken by characters
+
 //TODO set up a function that evalutes the health of hero and enemy to see if it is at or below 0 and generate the post game
 
 //TODO POST GAME
+
 //TODO failure and victory displays
 //TODO store the result of the game in localstorage
 //TODO set up scoring function
