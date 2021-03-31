@@ -266,7 +266,7 @@ attackElem.addEventListener('click', handleClickOnAttack);
 
 //TODO set up a function that evalutes the health of hero and enemy to see if it is at or below 0 and generate the post game
 
-function charaterHealth() {
+function characterHealth() {
 
 }
 
