@@ -13,6 +13,10 @@ h1 {
   font-size: 4em;
 }
 
+h2 {
+  font-size: 5em;
+}
+
 h3 {
   font-size: 2em;
 }
@@ -273,6 +277,103 @@ flex-direction: column;
   border: solid 10px black;
   padding: 20px;
   border-radius: 20px;
+}
+
+
+/* RESULTS PAGE CSS */
+
+.resultDisplay {
+  /* background-color: blue; */
+  width: 80%;
+  height: 80%;
+  margin: 50px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.resultDisplay>h2 {
+  margin-bottom: 60px;
+  animation: fadeIn 5s ease;
+  text-shadow: 3px 3px #2522ff;
+  
+}
+
+.resultDisplay button {
+  width: 100px;
+  height: 50px;
+  transition: 300ms;
+  /* animation: fadeIn 10s ease; */
+}
+
+.resultDisplay button:hover {
+  width: 100px;
+  height: 50px;
+  transform: scale(1.2);
+}
+
+#hero-head {
+  width: 100px;
+  margin-top: 100px;
+  animation: youDied 4s ease forwards;
+  
+}
+
+
+
+
+
+
+
+@keyframes fadeIn {
+  0% {
+    opacity:0;
+    /* font-size: 0%; */
+  
+  }
+
+
+  100% {
+    opacity:1;
+    /* font-size: 100%; */
+   
+  }
+}
+
+@keyframes youDied {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  
+  }
+  30% {
+    transform: translateY(0px) rotate(180deg);
+  }
+  100% {
+    transform: translateY(500px);
+  }
+}
+
+@keyframes youWon {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+25% {
+  transform: rotate(30deg);
+}
+
+  50% {
+    transform: scale(1.4) rotate(0deg);
+  }
+
+  75% {
+    transform: rotate(-75deg);
+
+  }
+
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
 }
 
 
