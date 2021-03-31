@@ -87,6 +87,7 @@ form>div>button {
   font-size: 2em;
 }
 
+
 .description {
   width: 90%;
   position: relative;
@@ -198,6 +199,13 @@ footer {
 
 .quiz-ctr>input {
   margin: 20px 30px;
+}
+
+.quiz-ctr>button {
+  width: 80px;
+  height: 25px;
+  background-color: black;
+  color: white;
 }
 
 /* Hero Container */
