@@ -265,8 +265,8 @@ function percentageHealth(person) {
 
 
 
-
-
+const heroHead = document.getElementById('hero-img');
+const enemyHead = document.getElementById('enemy-img');
 
 //TODONE remove event listener when click happens and reapply when submit button is clicked/after damage is taken
 //TODONE set up a function that determines if the question was answered correctly
@@ -277,7 +277,13 @@ const handleClickOnSubmit = function (event) {
 
     let selectedAnswer = event.target.answer.value
     totalScore -= 1000;
+
+    // IF ANSWER CORRECT
     if (selectedAnswer === currentQuestion.correctAnswer) {
+        
+        heroHead.style.animation = 'heroAttack 300ms';
+        enemyHead.style.animation = 'enemyHurt 500ms ease-in';
+        
         enemy.health -= currentQuestion.damage;
         enemyHealthCtr.textContent = enemy.health;
 
@@ -295,6 +301,12 @@ const handleClickOnSubmit = function (event) {
         alert('you got it');
 
     } else if (selectedAnswer !== currentQuestion.correctAnswer) {
+        
+        //animations
+        enemyHead.style.animation = 'enemyAttack 300ms';
+        heroHead.style.animation = 'heroHurt 500ms ease-in';
+        
+        
         hero.health -= 50;
         heroHealthCtr.textContent = hero.health;
 
