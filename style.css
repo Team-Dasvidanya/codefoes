@@ -133,6 +133,11 @@ form>div>button {
   justify-content: center;
 }
 
+#previousScores {
+  font-size: 2em;
+  font-weight: bold;
+}
+
 .mainRight>a>button {
   width: 200px;
   height: 70px;
