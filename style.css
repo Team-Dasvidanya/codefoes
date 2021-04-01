@@ -357,12 +357,10 @@ label {
 @keyframes fadeIn {
   0% {
     opacity: 0;
-    /* font-size: 0%; */
   }
 
   100% {
     opacity: 1;
-    /* font-size: 100%; */
   }
 }
 
@@ -406,13 +404,9 @@ label {
 }
 
 @keyframes enemyHurt {
-  0% {}
-
   50% {
     filter: hue-rotate(1000deg);
     transform: translateX(15px);
-  }
-  100% {
   }
 }
 
@@ -423,13 +417,10 @@ label {
 }
 
 @keyframes heroHurt {
-  0% {}
 
   50% {
     filter: hue-rotate(1000deg);
     transform: translateX(-15px);
-  }
-  100% {
   }
 }
 
