@@ -16,7 +16,7 @@ function GenerateCharacter(name, health, imgUrl) {
 }
 
 let hero = new GenerateCharacter(getUserName(), 500, "img/hero.png");
-let enemy = new GenerateCharacter("JB", 500, "img/JB.png");
+let enemy = new GenerateCharacter("JB", 500, "img/jb-fighter.gif");
 
 //TODO pull username from localstorage
 function getUserName() {
@@ -127,6 +127,14 @@ let currentQuestion = null;
 const quizHider = document.getElementById('quiz-ctr-form');
 
 const handleClickOnAttack = function (event) {
+
+    //reset css animations for attack and getting hurt
+    resetAnimation(heroHead);
+    resetAnimation(enemyHead);
+
+    // hide JB Dialogue box
+    responseBox.style.display = 'none';
+
     if (hero.health && enemy.health > death) {
         const attackWeClicked = event.target;
         const id = attackWeClicked.id;
@@ -264,6 +272,30 @@ function percentageHealth(person) {
 }
 
 
+// Get hero images
+const heroHead = document.getElementById('hero-img');
+const enemyHead = document.getElementById('enemy-img');
+
+// Get JB Response box
+const responseBox = document.getElementById('enemyResponse');
+
+// JB Quotes
+
+const jbQuotes = [
+    'You don\'t know...........YET!!!',
+    'Oh snap'];
+
+
+
+function resetAnimation(head) {
+    head.style.animation = 'reset 500ms';
+}
+
+
+function heroHurtAnimation () {
+    enemyHead.style.animation = 'enemyAttack 300ms';
+    heroHead.style.animation = 'heroHurt 500ms ease-in';
+}
 
 
 
@@ -277,24 +309,35 @@ const handleClickOnSubmit = function (event) {
 
     let selectedAnswer = event.target.answer.value
     totalScore -= 1000;
+
+    // IF ANSWER CORRECT
     if (selectedAnswer === currentQuestion.correctAnswer) {
+        // Attack Animations
+        heroHead.style.animation = 'heroAttack 300ms forwards';
+        enemyHead.style.animation = 'enemyHurt 500ms ease-in forwards';     
+        // Decrease enemy health and update text content        
         enemy.health -= currentQuestion.damage;
         enemyHealthCtr.textContent = enemy.health;
-
         // calculate hero percentage and assign width to health bar div
         enemyPercent = percentageHealth(enemy);
         enemyHealthBar.style.width = `${enemyPercent}%`;
-
-
         // if health is below 150, turn red
         if (enemy.health < 150) {
             enemyHealthBar.style.backgroundColor = 'red';
         }
-
-
         alert('you got it');
 
     } else if (selectedAnswer !== currentQuestion.correctAnswer) {
+        
+        //JB RESPONSE --  1. make box visible..   2. fill response in box
+        responseBox.style.display = 'grid';
+        responseBox.textContent = jbQuotes[0];
+
+
+        // Enemy Attack animations
+        setTimeout(heroHurtAnimation, 4000);
+        
+        
         hero.health -= 50;
         heroHealthCtr.textContent = hero.health;
 
