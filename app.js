@@ -7,6 +7,7 @@ function setUserName(event) {
     localStorage.setItem('userName', stringifiedName);
 }
 
+
 const userNameFormSubmit = document.getElementById('userNameForm');
 userNameFormSubmit.addEventListener('submit', setUserName);
 console.log('username', userNameFormSubmit);
@@ -19,3 +20,5 @@ function score() {
 
 const previousScoreShown = document.getElementById('previousScores');
 previousScoreShown.textContent = JSON.parse(score());
+
+
