@@ -93,6 +93,7 @@ LightQuestion.allLightQuestions = [];
 
 
 //TODO set up a function that shows the heavy light medium attacks and pulls from the correct array
+// Quiz questions borrowed from JB Tellez and Code Fellows Course 201
 new HeavyQuestion("Which of the following best describes fixed positioning?", "Relative to the box’s original location, the box is offset by a certain distance", "The box is placed relative to its containing box", "The box is held in the same location even if the page is scrolled", "Subsequent text is flowed around the positioned box, according to the box’s new left or right location", "answer3");
 new HeavyQuestion("What command would we use to create and switch to a new branch called debug in Git?", "git checkout debug", "git checkout -b debug", "git branch new debug", "git branch debug", "answer2");
 new HeavyQuestion("In an object functions become known as what?", "a property", "a method", "a variable", "a string", "answer2");
