@@ -100,14 +100,21 @@ LightQuestion.workingQuestions = [];
 new HeavyQuestion("Which of the following best describes fixed positioning?", "Relative to the box’s original location, the box is offset by a certain distance", "The box is placed relative to its containing box", "The box is held in the same location even if the page is scrolled", "Subsequent text is flowed around the positioned box, according to the box’s new left or right location", "answer3");
 new HeavyQuestion("What command would we use to create and switch to a new branch called debug in Git?", "git checkout debug", "git checkout -b debug", "git branch new debug", "git branch debug", "answer2");
 new HeavyQuestion("In an object functions become known as what?", "a property", "a method", "a variable", "a string", "answer2");
-
+new HeavyQuestion("What is the purpose of z-index in CSS positioning?", "Determines the number of pixels that a user may drag a pixel to reposition it", "Limits the overall width of an element", "In a layout with overlapping elements, determines which element sits on top", "Allows an element to shrink and grow in relation to the size of the browser window", "answer3");
+new HeavyQuestion("What type of CSS positioning takes an element out of normal flow and positions it in relation to its containing element?", "Fixed positioning", "Absolute positioning", "Z-index positioning", "Normal positioning", "answer2");
+new HeavyQuestion("What is the term we use for a function that is associated with (or, attached to) an object?", "A method", "An action", "An ability", "An instance", "answer1");
 
 new MediumQuestion(`In the following line of code: let car = newCar(‘Subaru’, 10);
 "Subaru” and 10 are:`, "Insantations", "Function expressions", "Arguments", "Variables", "answer3");
 new MediumQuestion("What is the name we call a function that is associated with/attached to an Object?", "A method", "An ability", "An instance", "An action", "answer1");
 new MediumQuestion("Which is not a data type?", "string", "array", "boolean", "attribute", "answer4");
 new MediumQuestion("When writing clean code, which should you avoid?", "step by step instructions", "syntax highlighting", "no whitespace", "fixed-width font", "answer3");
-
+new MediumQuestion("What type of CSS positioning is a subset of absolute positioning and positions an element in relation to the browser window?", "Browser positioning", "Float positioning", "Fixed positioning", "Navigation positioning", "answer3");
+new MediumQuestion("In JavaScript, what is the difference between the == and === operators?", "=== means equality without type coersion, meaing the two values being compared must be of the same data type (and value) to return true.", "There is no difference, it is simply a preference.", "=== does not exist in JavaScript, its a trick question!", "I don't know, yet", "answer1");
+new MediumQuestion("What does the CSS property 'float' do?", "Allows you to take an element in normal flow and place it as for to the left or the right of the containing element as possible", "Moves an element to sit on the top of its container, as if it were floating on water", "Allows an element to appear to 'float' on the display, with other elements passing underneath it when the page is scrolled", "The positioning of the element varies depending upon its relation to other elements whose 'float' property is set to 'true'", "answer1");
+new MediumQuestion("When used inside of an object, this refers to:", "The object that it is used in", "The block of code following 'this'", "The function concatenation that it is used inside of", "Any variable that is declared either immediately before or immediately after the use of 'this'", "answer1");
+new MediumQuestion("var rabbit = {};", "Object literal notation", "Properties and methods", "Cascading prototypal inheritance", "A constructor function", "answer1");
+new MediumQuestion("An object is a collection of:", "properties and methods", "arguements and methods", "arguements and variables", "variables and arrays", "answer1")
 
 new LightQuestion("Your best friend has an account on GitHub with a username of “neatdad22.” He has a repository called “dadjokes.” In order to download the “dadjokes” Git repository on your local machine for the first time, which of the following Git commands would you enter?", "git pull origin https://github.com/neatdad22/dadjokes.git", "git merge https://github.com/neatdad22/dadjokes.git", "git init https://github.com/neatdad22/dadjokes.git", "git clone https://github.com/neatdad22/dadjokes.git", "answer4");
 new LightQuestion("What property is used to change the text color of an element?", "textcolor", "font-color", "fontcolor", "color", "answer4");
@@ -116,8 +123,11 @@ new LightQuestion("What tag do you need to run JavaScript code in an html file?"
 new LightQuestion("Which defines the structure of a webpage?", "HTML", "JS", "CSS", "GitHub", "answer1");
 new LightQuestion("What Unix command would create a new directory called thursday?", "new directory thursday", "mkdir thursday", "directory thursday", "newdir thursday", "answer2");
 new LightQuestion("Which is not an example of a JavaScript statement?", "cookieCount *= 5;", "var NumBooks;", "1 =! loneliestNumber;", "userName = userName.toUpperCase();", "answer3");
-
-
+new LightQuestion("In modern browsers, localStorage data is stored in:", "A database", "Browser sessions", "The Cloud", "The file system", "answer4");
+new LightQuestion("In JavaScript, the = operator is used for what purpose?", "To assign a value to a variable", "It varies, and depends upon the context", "There is no purpose", "To check for equality", "answer1");
+new LightQuestion("What does Math.floor() do?", "It truncates the decimal values from a floating point number", "It picks a random number and attaches it to the prototype", "It takes a decimal and invokes it up to the next higher integer value", "It generates decimal numbers of the number digits that are passed in as an argument", "answer1");
+new LightQuestion("In the line of code 'var turtle = newAnimal(Michelangelo,1);' Michelangelo and 1 are: ", "Variables", "Function expressions", "Arguments", "Instantiations", "answer3");
+new LightQuestion("What does DOM stand for?", "Document Object Model", "Direct Object-oriented Maintenance", "Distribution of Methods", "Domain Oriented Manipulation", "answer1");
 
 //TODO GAME
 
@@ -376,7 +386,7 @@ const handleClickOnSubmit = function (event) {
 
 
         // Enemy Attack animations
-        setTimeout(heroHurtAnimation, 4000); 
+        setTimeout(heroHurtAnimation, 4000);
         hero.health -= currentQuestion.damage;;
 
         heroHealthCtr.textContent = hero.health;
@@ -409,7 +419,7 @@ const handleClickOnSubmit = function (event) {
     }
     if (enemy.health <= 0) {
         let win = "You Won!";
-         // make sure it doesn't display a negative number for health, then calling the healthbar animation.
+        // make sure it doesn't display a negative number for health, then calling the healthbar animation.
         enemyHealthCtr.textContent = 0;
         heroPercent = percentageHealth(hero);
         heroHealthBar.style.width = `${heroPercent}%`;
@@ -419,10 +429,10 @@ const handleClickOnSubmit = function (event) {
         localStorage.setItem("endscore", JSON.stringify(totalScore));
         enemyHead.style.animation = 'bossDied 4s';
         answerSubmitButton.removeEventListener('submit', handleClickOnSubmit);
-       
-       setTimeout(() => {window.location.replace("results.html");}, 2500)
-       
-       
+
+        setTimeout(() => { window.location.replace("results.html"); }, 2500)
+
+
         // window.location.replace("results.html");
     }
 
