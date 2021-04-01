@@ -293,8 +293,8 @@ const handleClickOnSubmit = function (event) {
         // Attack Animations
         heroHead.style.animation = 'heroAttack 300ms forwards';
         enemyHead.style.animation = 'enemyHurt 500ms ease-in forwards';     
-        //
-        
+
+        // Decrease enemy health and update text content        
         enemy.health -= currentQuestion.damage;
         enemyHealthCtr.textContent = enemy.health;
 
