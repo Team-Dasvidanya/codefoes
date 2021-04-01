@@ -16,7 +16,7 @@ function GenerateCharacter(name, health, imgUrl) {
 }
 
 let hero = new GenerateCharacter(getUserName(), 500, "img/hero.png");
-let enemy = new GenerateCharacter("JB", 500, "img/JB.png");
+let enemy = new GenerateCharacter("JB", 500, "img/jb-fighter.gif");
 
 //TODO pull username from localstorage
 function getUserName() {
