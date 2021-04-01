@@ -309,6 +309,7 @@ label {
 
 /* Attack Selection Container */
 .attack-ctr {
+  cursor: default;
   font-family: 'Russo One', sans-serif;
   font-size: .8em;
   background-color: cornsilk;

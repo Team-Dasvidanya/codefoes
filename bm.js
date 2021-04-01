@@ -324,7 +324,7 @@ const responseBox = document.getElementById('enemyResponse');
 
 const jbQuotes = [
     'You don\'t know...........YET!!!',
-    'Oh snap'];
+    'Oh snap', 'I\'m Johnny Blue Eyes'];
 
 
 
@@ -376,10 +376,9 @@ const handleClickOnSubmit = function (event) {
 
 
         // Enemy Attack animations
-        setTimeout(heroHurtAnimation, 4000);
+        setTimeout(heroHurtAnimation, 4000); 
+        hero.health -= currentQuestion.damage;;
 
-
-        hero.health -= 50;
         heroHealthCtr.textContent = hero.health;
 
         // calculate hero percentage and assign width to health bar div
