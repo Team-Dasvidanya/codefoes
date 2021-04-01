@@ -6,7 +6,7 @@
 
 //TODO PREGAME
 //TODONE generate characters
-
+let totalScore = 13000;
 let userName = '';
 
 function GenerateCharacter(name, health, imgUrl) {
@@ -258,8 +258,8 @@ heroHealthBar.style.width = `${heroPercent}%`;
 enemyHealthBar.style.width = `${enemyPercent}%`;
 
 //function to calculate enemy and hero's percentage of health
-function percentageHealth (person) {
-    let percentHealth = (person.health / 500)*100;
+function percentageHealth(person) {
+    let percentHealth = (person.health / 500) * 100;
     return percentHealth;
 }
 
@@ -274,14 +274,13 @@ function percentageHealth (person) {
 const handleClickOnSubmit = function (event) {
     event.preventDefault();
     attackElem.addEventListener('click', handleClickOnAttack);
-    
+
     let selectedAnswer = event.target.answer.value
-
-
+    totalScore -= 1000;
     if (selectedAnswer === currentQuestion.correctAnswer) {
         enemy.health -= currentQuestion.damage;
         enemyHealthCtr.textContent = enemy.health;
-        
+
         // calculate hero percentage and assign width to health bar div
         enemyPercent = percentageHealth(enemy);
         enemyHealthBar.style.width = `${enemyPercent}%`;
@@ -290,7 +289,7 @@ const handleClickOnSubmit = function (event) {
         // if health is below 150, turn red
         if (enemy.health < 150) {
             enemyHealthBar.style.backgroundColor = 'red';
-          }
+        }
 
 
         alert('you got it');
@@ -298,7 +297,7 @@ const handleClickOnSubmit = function (event) {
     } else if (selectedAnswer !== currentQuestion.correctAnswer) {
         hero.health -= 50;
         heroHealthCtr.textContent = hero.health;
-        
+
         // calculate hero percentage and assign width to health bar div
         heroPercent = percentageHealth(hero);
         heroHealthBar.style.width = `${heroPercent}%`;
@@ -311,24 +310,26 @@ const handleClickOnSubmit = function (event) {
         alert('incorrect');
     }
     const inputs = document.querySelectorAll('input[type=radio]:checked');
-    for (let i = 0; i < inputs.length; i+=1) {
+    for (let i = 0; i < inputs.length; i += 1) {
         inputs[i].checked = false;
     }
 
     if (hero.health <= 0) {
         let lost = "YOU DIED.";
         localStorage.setItem("endresult", JSON.stringify(lost));
+        localStorage.setItem("endscore", JSON.stringify(totalScore));
         answerSubmitButton.removeEventListener('submit', handleClickOnSubmit)
         window.location.replace("results.html");
     }
     if (enemy.health <= 0) {
         let win = "You Won!";
         localStorage.setItem("endresult", JSON.stringify(win));
+        localStorage.setItem("endscore", JSON.stringify(totalScore));
         answerSubmitButton.removeEventListener('submit', handleClickOnSubmit)
         window.location.replace("results.html");
     }
 
-    quizHider.style.display ='none';
+    quizHider.style.display = 'none';
     console.log(event.target.answer.value, "test");
 };
 
@@ -344,12 +345,6 @@ answerSubmitButton.addEventListener('submit', handleClickOnSubmit);
 // TODO: when user clicks on light attack, choose a constructed light question randomly from lightquestion array (LightQuestion.all) and populate it in the quiz-ctr div with the question, answers on radio buttons, and a correct answer specified. Once they submit, calculate if they got it right. If they did, remove health from enemy. If they did not, remove health from hero. If either hero or enemy is not dead, let them select another attack.
 
 
-
-
-
-function characterHealth() {
-
-}
 
 //2. TODO set up a function that evalutes the health of hero and enemy to see if it is at or below 0 and generate the post game
 //TODO POST GAME
