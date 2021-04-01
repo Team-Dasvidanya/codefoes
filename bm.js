@@ -360,6 +360,9 @@ const handleClickOnSubmit = function (event) {
 
     if (hero.health <= 0) {
         let lost = "YOU DIED.";
+        // make sure it doesn't display a negative number for health, then calling the healthbar animation.
+        heroHealthCtr.textContent = 0;
+
         localStorage.setItem("endresult", JSON.stringify(lost));
         localStorage.setItem("endscore", JSON.stringify(totalScore));
         answerSubmitButton.removeEventListener('submit', handleClickOnSubmit)
@@ -367,10 +370,21 @@ const handleClickOnSubmit = function (event) {
     }
     if (enemy.health <= 0) {
         let win = "You Won!";
+         // make sure it doesn't display a negative number for health, then calling the healthbar animation.
+        enemyHealthCtr.textContent = 0;
+        heroPercent = percentageHealth(hero);
+        heroHealthBar.style.width = `${heroPercent}%`;
+
+
         localStorage.setItem("endresult", JSON.stringify(win));
         localStorage.setItem("endscore", JSON.stringify(totalScore));
-        answerSubmitButton.removeEventListener('submit', handleClickOnSubmit)
-        window.location.replace("results.html");
+        enemyHead.style.animation = 'bossDied 4s';
+        answerSubmitButton.removeEventListener('submit', handleClickOnSubmit);
+       
+       setTimeout(() => {window.location.replace("results.html");}, 2500)
+       
+       
+        // window.location.replace("results.html");
     }
 
     quizHider.style.display = 'none';
