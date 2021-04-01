@@ -291,6 +291,7 @@ label {
 
 .opponent-ctr > img {
   margin: 20px 20px;
+  z-index: 10;
 }
 
 /* Choose Your Attack Text */
@@ -390,6 +391,7 @@ label {
 #hero-head {
   width: 100px;
   margin-top: 100px;
+  
 } 
 
 #hero-img {
@@ -435,8 +437,7 @@ label {
 
 
 
-
-
+/* ANIMATIONS */
 
 @keyframes fadeIn {
   0% {
@@ -507,6 +508,21 @@ label {
     transform: translateX(-15px);
   }
 }
+
+
+@keyframes bossDied {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  30% {
+    transform: translateY(0px) rotate(180deg);
+  }
+  100% {
+    transform: translateY(1000px);
+  }
+}
+
+
 
 @-webkit-keyframes reset {
   to {width: auto;}
