@@ -91,6 +91,9 @@ HeavyQuestion.allHeavyQuestions = [];
 MediumQuestion.allMediumQuestions = [];
 LightQuestion.allLightQuestions = [];
 
+HeavyQuestion.workingQuestions = [];
+MediumQuestion.workingQuestions = [];
+LightQuestion.workingQuestions = [];
 
 //TODO set up a function that shows the heavy light medium attacks and pulls from the correct array
 // Quiz questions borrowed from JB Tellez and Code Fellows Course 201
@@ -176,43 +179,80 @@ let prevLightQuestion = null;
 let prevMediumQuestion = null;
 let prevHeavyQuestion = null;
 
-function pickNewLightQuestion() {
-    const previousQuestion = prevLightQuestion;
-
-    shuffle(LightQuestion.allLightQuestions);
-    for (let question of LightQuestion.allLightQuestions) {
-        if (question !== previousQuestion) {
-            prevLightQuestion = question;
-            break;
-        }
+function pickNewLightQuestion() { // that was weird but working
+    if (LightQuestion.workingQuestions.length === 0) {
+        LightQuestion.workingQuestions = LightQuestion.allLightQuestions.slice();
+        shuffle(LightQuestion.workingQuestions);
     }
-    console.log(LightQuestion.allLightQuestions[0])
-    return LightQuestion.allLightQuestions[0];
+    // const previousQuestion = prevLightQuestion;
+
+    let newQuestion = LightQuestion.workingQuestions.pop(); //chooses the last position of the array in example this is position 5
+    if (newQuestion === prevLightQuestion) { // if this position in the array is the same as the previous arrays position 0 do this
+        LightQuestion.workingQuestions.unshift(newQuestion); // put array position 5 at array position 0
+        newQuestion = LightQuestion.workingQuestions.pop(); // removes number 4 of the first array 
+    }
+    prevLightQuestion = newQuestion;
+    return newQuestion;
+    // shuffle(LightQuestion.allLightQuestions);
+    // for (let question of LightQuestion.workingQuestions) {
+    //     if (question !== previousQuestion) {
+    //         prevLightQuestion = question;
+    //         break;
+    //     }
+    // }
+    // console.log(LightQuestion.workingQuestions[0])
+    // return LightQuestion.workingQuestions[0];
 }
 
 function pickNewMediumQuestion() {
-    const previousQuestion = prevMediumQuestion;
-
-    shuffle(MediumQuestion.allMediumQuestions);
-    for (let question of MediumQuestion.allMediumQuestions) {
-        if (question !== previousQuestion) {
-            prevMediumQuestion = question;
-            break;
-        }
+    if (MediumQuestion.workingQuestions.length === 0) {
+        MediumQuestion.workingQuestions = MediumQuestion.allMediumQuestions.slice();
+        shuffle(MediumQuestion.workingQuestions);
     }
-    return MediumQuestion.allMediumQuestions[0];
+    // const previousQuestion = prevMediumQuestion;
+
+    let newQuestion = MediumQuestion.workingQuestions.pop(); //chooses the last position of the array in example this is position 5
+    if (newQuestion === prevMediumQuestion) { // if this position in the array is the same as the previous arrays position 0 do this
+        MediumQuestion.workingQuestions.unshift(newQuestion); // put array position 5 at array position 0
+        newQuestion = MediumQuestion.workingQuestions.pop(); // removes number 4 of the first array 
+    }
+    prevMediumQuestion = newQuestion;
+    return newQuestion;
+    // const previousQuestion = prevMediumQuestion;
+
+    // shuffle(MediumQuestion.allMediumQuestions);
+    // for (let question of MediumQuestion.allMediumQuestions) {
+    //     if (question !== previousQuestion) {
+    //         prevMediumQuestion = question;
+    //         break;
+    //     }
+    // }
+    // return MediumQuestion.allMediumQuestions[0];
 }
 function pickNewHeavyQuestion() {
-    const previousQuestion = prevHeavyQuestion;
-
-    shuffle(HeavyQuestion.allHeavyQuestions);
-    for (let question of HeavyQuestion.allHeavyQuestions) {
-        if (question !== previousQuestion) {
-            prevHeavyQuestion = question;
-            break;
-        }
+    if (HeavyQuestion.workingQuestions.length === 0) {
+        HeavyQuestion.workingQuestions = HeavyQuestion.allHeavyQuestions.slice();
+        shuffle(HeavyQuestion.workingQuestions);
     }
-    return HeavyQuestion.allHeavyQuestions[0];
+    // const previousQuestion = prevLightQuestion;
+
+    let newQuestion = HeavyQuestion.workingQuestions.pop(); //chooses the last position of the array in example this is position 5
+    if (newQuestion === prevHeavyQuestion) { // if this position in the array is the same as the previous arrays position 0 do this
+        HeavyQuestion.workingQuestions.unshift(newQuestion); // put array position 5 at array position 0
+        newQuestion = HeavyQuestion.workingQuestions.pop(); // removes number 4 of the first array 
+    }
+    prevHeavyQuestion = newQuestion;
+    return newQuestion;
+    // const previousQuestion = prevHeavyQuestion;
+
+    // shuffle(HeavyQuestion.allHeavyQuestions);
+    // for (let question of HeavyQuestion.allHeavyQuestions) {
+    //     if (question !== previousQuestion) {
+    //         prevHeavyQuestion = question;
+    //         break;
+    //     }
+    // }
+    // return HeavyQuestion.allHeavyQuestions[0];
 }
 
 
@@ -293,7 +333,7 @@ function resetAnimation(head) {
 }
 
 
-function heroHurtAnimation () {
+function heroHurtAnimation() {
     enemyHead.style.animation = 'enemyAttack 300ms';
     heroHead.style.animation = 'heroHurt 500ms ease-in';
 }
@@ -315,7 +355,7 @@ const handleClickOnSubmit = function (event) {
     if (selectedAnswer === currentQuestion.correctAnswer) {
         // Attack Animations
         heroHead.style.animation = 'heroAttack 300ms forwards';
-        enemyHead.style.animation = 'enemyHurt 500ms ease-in forwards';     
+        enemyHead.style.animation = 'enemyHurt 500ms ease-in forwards';
         // Decrease enemy health and update text content        
         enemy.health -= currentQuestion.damage;
         enemyHealthCtr.textContent = enemy.health;
@@ -329,7 +369,7 @@ const handleClickOnSubmit = function (event) {
         alert('you got it');
 
     } else if (selectedAnswer !== currentQuestion.correctAnswer) {
-        
+
         //JB RESPONSE --  1. make box visible..   2. fill response in box
         responseBox.style.display = 'grid';
         responseBox.textContent = jbQuotes[0];
@@ -337,8 +377,8 @@ const handleClickOnSubmit = function (event) {
 
         // Enemy Attack animations
         setTimeout(heroHurtAnimation, 4000);
-        
-        
+
+
         hero.health -= 50;
         heroHealthCtr.textContent = hero.health;
 
@@ -386,7 +426,7 @@ const answerSubmitButton = document.getElementById('quiz-ctr-form');
 console.log(answerSubmitButton);
 answerSubmitButton.addEventListener('submit', handleClickOnSubmit);
 
-// TODO: when user clicks on light attack, choose a constructed light question randomly from lightquestion array (LightQuestion.all) and populate it in the quiz-ctr div with the question, answers on radio buttons, and a correct answer specified. Once they submit, calculate if they got it right. If they did, remove health from enemy. If they did not, remove health from hero. If either hero or enemy is not dead, let them select another attack.
+// TODO: when user clicks on light attack, choose a constructed light question randomly from lightquestion array (HeavyQuestion.all) and populate it in the quiz-ctr div with the question, answers on radio buttons, and a correct answer specified. Once they submit, calculate if they got it right. If they did, remove health from enemy. If they did not, remove health from hero. If either hero or enemy is not dead, let them select another attack.
 
 
 
