@@ -432,3 +432,7 @@ label {
   100% {
   }
 }
+
+@-webkit-keyframes reset {
+  to {width: auto;}
+}

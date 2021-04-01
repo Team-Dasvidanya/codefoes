@@ -127,6 +127,11 @@ let currentQuestion = null;
 const quizHider = document.getElementById('quiz-ctr-form');
 
 const handleClickOnAttack = function (event) {
+
+    //reset css animations for attack and getting hurt
+    resetAnimation(heroHead);
+    resetAnimation(enemyHead);
+
     if (hero.health && enemy.health > death) {
         const attackWeClicked = event.target;
         const id = attackWeClicked.id;
@@ -268,6 +273,10 @@ function percentageHealth(person) {
 const heroHead = document.getElementById('hero-img');
 const enemyHead = document.getElementById('enemy-img');
 
+function resetAnimation(head) {
+    head.style.animation = 'reset 500ms';
+}
+
 //TODONE remove event listener when click happens and reapply when submit button is clicked/after damage is taken
 //TODONE set up a function that determines if the question was answered correctly
 //1. TODO set up a function that determines damage taken by characters
@@ -280,9 +289,11 @@ const handleClickOnSubmit = function (event) {
 
     // IF ANSWER CORRECT
     if (selectedAnswer === currentQuestion.correctAnswer) {
-        
-        heroHead.style.animation = 'heroAttack 300ms';
-        enemyHead.style.animation = 'enemyHurt 500ms ease-in';
+
+        // Attack Animations
+        heroHead.style.animation = 'heroAttack 300ms forwards';
+        enemyHead.style.animation = 'enemyHurt 500ms ease-in forwards';     
+        //
         
         enemy.health -= currentQuestion.damage;
         enemyHealthCtr.textContent = enemy.health;
@@ -302,7 +313,10 @@ const handleClickOnSubmit = function (event) {
 
     } else if (selectedAnswer !== currentQuestion.correctAnswer) {
         
-        //animations
+        //JB RESPONSE
+
+
+        //Attack animations
         enemyHead.style.animation = 'enemyAttack 300ms';
         heroHead.style.animation = 'heroHurt 500ms ease-in';
         
