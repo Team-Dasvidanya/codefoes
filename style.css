@@ -358,17 +358,31 @@ label {
   background-color: white;
   border: 4px black solid;
   border-radius: 20px;
-  width: 400px;
-  height: 200px;
+  width: 350px;
+  height: 100px;
   position: absolute;
-  left: -350px;
-  top: -30px;
+  left: -180px;
+  top: -110px;
   z-index: 4;
   display: none;
   place-items: center;
-  transition: 200ms;
+  
 
 }
+
+#enemyResponse:after {
+	border: 38px solid transparent;
+	border-top-color: black;
+	content: '';
+	position: absolute;
+		top: 100%;
+		left: 80%;
+	width: 0;
+	height: 0;
+  transform: rotateY(40deg);
+}
+
+
 
 
 
