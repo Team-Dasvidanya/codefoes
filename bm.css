@@ -9,25 +9,21 @@
     justify-content: center;
 }
 
-main {
+ main {
     width: 1280px;
-    margin: 0 auto;
-}
+    margin: 30px auto;
+} 
 
-#characterimg {
-    width: 250px;
-    height: 250px;
-}
+
+
+
+
+
+
 
 form {
     display: block;
 }
 
-/* .quiz-ctr {
-    display: block;
-}
 
-label {
-    font: 1rem 'Fira Sans', sans-serif;
-    display: block;
-} */
+

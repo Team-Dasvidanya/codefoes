@@ -4,9 +4,6 @@ body {
   font-family: helvetica;
 }
 
-
-
-
 /* HEADING, PARAGRAPH, FONTS */
 
 h1 {
@@ -29,9 +26,6 @@ h5 {
   font-size: 1.3em;
 }
 
-
-
-
 /* HEADER NAV */
 header {
   background-color: rgb(60, 60, 60);
@@ -41,16 +35,12 @@ header {
   place-items: center;
 }
 
-
-
-
-
 /* HOME PAGE MAIN SECTION */
 
 main {
   background-color: darkgrey;
   height: 700px;
-  margin: 30px 40px;
+  margin: 30px auto;
   display: flex;
 }
 
@@ -63,7 +53,6 @@ main {
   background-color: white;
 }
 
-
 form {
   display: flex;
   width: 100%;
@@ -71,19 +60,18 @@ form {
   align-items: flex-start;
 }
 
-form>div {
+form > div {
   display: flex;
   flex-direction: column;
   width: 50%;
 }
 
-
-form>div>input {
+form > div > input {
   width: 100%;
   height: 30px;
 }
 
-form>div>button {
+form > div > button {
   width: 60%;
   margin-top: 30px;
   height: 50px;
@@ -91,21 +79,19 @@ form>div>button {
   font-size: 2em;
 }
 
-
 .description {
   width: 90%;
   position: relative;
   top: -100px;
 }
 
-.description>h3 {
+.description > h3 {
   margin-bottom: 20px;
 }
 
-.description>p {
+.description > p {
   font-size: 1.5em;
 }
-
 
 .mainRight {
   width: 50%;
@@ -121,7 +107,7 @@ form>div>button {
   margin: 60px auto;
 }
 
-.score-ctr>h3 {
+.score-ctr > h3 {
   margin-top: 30px;
 }
 
@@ -133,14 +119,19 @@ form>div>button {
   justify-content: center;
 }
 
-.mainRight>a>button {
+#previousScores {
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.mainRight > a > button {
+
   width: 200px;
   height: 70px;
   border-radius: 20px;
   font-size: 2em;
   margin-left: 25%;
 }
-
 
 /* FOOTER SECTION - TEAM PROFILES */
 
@@ -176,9 +167,6 @@ footer {
   place-items: center;
 }
 
-
-
-
 /* BATTLE PAGE CSS */
 
 .flexy {
@@ -186,9 +174,7 @@ footer {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-
 }
-
 
 /* Quiz Question Container */
 .quiz-ctr {
@@ -202,8 +188,9 @@ footer {
 
 .quiz-ctr-form {
   display: none;
-  font-size: .7em;
+  font-size: 0.7em;
 }
+
 
 .quiz-ctr-form>h3 {
   margin: 20px 0px 30px 40px;
@@ -214,7 +201,7 @@ footer {
   margin: 10px 30px;
 } */
 
-input[type=radio] {
+input[type="radio"] {
   float: left;
   margin-left: 40px;
 }
@@ -225,7 +212,7 @@ label {
   font-size: 18px;
 }
 
-.quiz-ctr-form>button {
+.quiz-ctr-form > button {
   width: 80px;
   height: 25px;
   background-color: blue;
@@ -233,12 +220,9 @@ label {
   margin-left: 200px;
 }
 
-
-
 /* Hero Container */
 .hero-ctr {
   font-family: 'Russo One', sans-serif;
-  background-color: cyan;
   background-image: linear-gradient(200deg, rgb(231, 123, 123), rgb(254, 255, 168));
   /* background-image: url(img/battle2.jpg); */
   background-position: center;
@@ -252,50 +236,45 @@ label {
   align-items: center;
 }
 
-.hero-ctr>img {
-margin: 20px 20px;
+.hero-ctr > img {
+  margin: 20px 20px;
 }
 
+
+
+
+
 .healthbar {
-  background-color: green;
+  background-color: white;
   width: 150px;
   height: 10px;
   border-radius: 20px;
-
 }
 
 #heroHealthBar {
-  background-color: yellow;
+  background-color: rgb(15, 169, 15);
   height: 100%;
   width: 0%;
-  transition: 3s;
+  transition: 2s;
   border-radius: 20px;
-
 }
 
 #enemyHealthBar {
-background-color: coral;
-height: 100%;
-width: 0%;
-border-radius: 20px;
-transition: 3s;
+  background-color: rgb(15, 169, 15);
+  height: 100%;
+  width: 0%;
+  border-radius: 20px;
+  transition: 2s;
 }
-
-
-
-
 
 .hero-info {
-display: flex;
-flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
-
-
 
 /* Opponent Container */
 .opponent-ctr {
   font-family: 'Russo One', sans-serif;
-  background-color: cyan;
   background-image: linear-gradient(100deg, rgb(231, 123, 123), rgb(254, 255, 168));
   /* background-image: url(img/clouds.jpg); */
   background-position: center center;
@@ -307,11 +286,12 @@ flex-direction: column;
   height: 40%;
   display: flex;
   align-items: center;
+  position: relative;
 }
 
-.opponent-ctr>img {
+.opponent-ctr > img {
   margin: 20px 20px;
-  }
+}
 
 /* Choose Your Attack Text */
 #choose-attack {
@@ -322,7 +302,12 @@ flex-direction: column;
 }
 
 
-  /* Attack Selection Container */
+
+
+
+
+
+/* Attack Selection Container */
 .attack-ctr {
   font-family: 'Russo One', sans-serif;
   font-size: .8em;
@@ -363,7 +348,6 @@ flex-direction: column;
   border-radius: 20px;
 }
 
-
 /* RESULTS PAGE CSS */
 
 .resultDisplay {
@@ -377,11 +361,10 @@ flex-direction: column;
   justify-content: center;
 }
 
-.resultDisplay>h2 {
+.resultDisplay > h2 {
   margin-bottom: 60px;
   animation: fadeIn 5s ease;
   text-shadow: 3px 3px #2522ff;
-  
 }
 
 .resultDisplay button {
@@ -397,12 +380,57 @@ flex-direction: column;
   transform: scale(1.2);
 }
 
+
+
+
+/* MORE BATTLE CSS --- This should be moved to bm.css eventually */
+
+
 #hero-head {
   width: 100px;
   margin-top: 100px;
-  
-  
+} 
+
+#hero-img {
+  width: 200px;
+  height: 200px;
+  animation: fadeIn 3s;
 }
+
+#enemy-img {
+  width: 250px;
+  height: 250px;
+  animation: fadeIn 3s;
+}
+
+#enemyResponse {
+  background-color: white;
+  border: 4px black solid;
+  border-radius: 20px;
+  width: 350px;
+  height: 100px;
+  position: absolute;
+  left: -180px;
+  top: -110px;
+  z-index: 4;
+  display: none;
+  place-items: center;
+  
+
+}
+
+#enemyResponse:after {
+	border: 38px solid transparent;
+	border-top-color: black;
+	content: '';
+	position: absolute;
+		top: 100%;
+		left: 80%;
+	width: 0;
+	height: 0;
+  transform: rotateY(40deg);
+}
+
 
 
 
@@ -411,23 +439,17 @@ flex-direction: column;
 
 @keyframes fadeIn {
   0% {
-    opacity:0;
-    /* font-size: 0%; */
-  
+    opacity: 0;
   }
 
-
   100% {
-    opacity:1;
-    /* font-size: 100%; */
-   
+    opacity: 1;
   }
 }
 
 @keyframes youDied {
   0% {
     transform: translateY(0px) rotate(0deg);
-  
   }
   30% {
     transform: translateY(0px) rotate(180deg);
@@ -441,9 +463,9 @@ flex-direction: column;
   0% {
     transform: scale(1) rotate(0deg);
   }
-25% {
-  transform: rotate(30deg);
-}
+  25% {
+    transform: rotate(30deg);
+  }
 
   50% {
     transform: scale(1.4) rotate(0deg);
@@ -451,7 +473,6 @@ flex-direction: column;
 
   75% {
     transform: rotate(-75deg);
-
   }
 
   100% {
@@ -459,11 +480,33 @@ flex-direction: column;
   }
 }
 
+@keyframes heroAttack {
+  50% {
+    transform: translateX(30px) translateY(-20px);
+  }
+}
 
+@keyframes enemyHurt {
+  50% {
+    filter: hue-rotate(1000deg);
+    transform: translateX(15px);
+  }
+}
 
+@keyframes enemyAttack {
+  50% {
+    transform: translateX(-30px) translateY(20px);
+  }
+}
 
+@keyframes heroHurt {
 
+  50% {
+    filter: hue-rotate(1000deg);
+    transform: translateX(-15px);
+  }
+}
 
-
-
-
+@-webkit-keyframes reset {
+  to {width: auto;}
+} 

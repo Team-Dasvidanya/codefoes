@@ -10,3 +10,12 @@ function setUserName(event) {
 const userNameFormSubmit = document.getElementById('userNameForm');
 userNameFormSubmit.addEventListener('submit', setUserName);
 console.log('username', userNameFormSubmit);
+
+function score() {
+    score = localStorage.getItem("endscore");
+    JSON.parse(score);
+    return score;
+}
+
+const previousScoreShown = document.getElementById('previousScores');
+previousScoreShown.textContent = JSON.parse(score());

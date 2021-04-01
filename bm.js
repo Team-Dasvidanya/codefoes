@@ -6,7 +6,7 @@
 
 //TODO PREGAME
 //TODONE generate characters
-
+let totalScore = 13000;
 let userName = '';
 
 function GenerateCharacter(name, health, imgUrl) {
@@ -16,7 +16,7 @@ function GenerateCharacter(name, health, imgUrl) {
 }
 
 let hero = new GenerateCharacter(getUserName(), 500, "img/hero.png");
-let enemy = new GenerateCharacter("JB", 500, "img/JB.png");
+let enemy = new GenerateCharacter("JB", 500, "img/jb-fighter.gif");
 
 //TODO pull username from localstorage
 function getUserName() {
@@ -128,6 +128,14 @@ let currentQuestion = null;
 const quizHider = document.getElementById('quiz-ctr-form');
 
 const handleClickOnAttack = function (event) {
+
+    //reset css animations for attack and getting hurt
+    resetAnimation(heroHead);
+    resetAnimation(enemyHead);
+
+    // hide JB Dialogue box
+    responseBox.style.display = 'none';
+
     if (hero.health && enemy.health > death) {
         const attackWeClicked = event.target;
         const id = attackWeClicked.id;
@@ -250,18 +258,45 @@ let enemyHealthBar = document.getElementById('enemyHealthBar');
 heroHealthCtr.textContent = hero.health;
 enemyHealthCtr.textContent = enemy.health;
 
-heroHealthBar.style.width = '100%';
-enemyHealthBar.style.width = '100%';
+// Initialize Hero percentage to 100%
+let heroPercent = percentageHealth(hero);
+let enemyPercent = percentageHealth(enemy);
 
-// heroHealthBar.style.width = `'${percentageOfHealth}'`;
+//Assign hero percentage as width value for the healthbar div width
+heroHealthBar.style.width = `${heroPercent}%`;
+enemyHealthBar.style.width = `${enemyPercent}%`;
 
-
-function percentageHealth () {
-    let percentHealth = (enemy.health / 500)*100;
-    return percentageHealth;
+//function to calculate enemy and hero's percentage of health
+function percentageHealth(person) {
+    let percentHealth = (person.health / 500) * 100;
+    return percentHealth;
 }
 
-// console.log(percentageHealth());
+
+// Get hero images
+const heroHead = document.getElementById('hero-img');
+const enemyHead = document.getElementById('enemy-img');
+
+// Get JB Response box
+const responseBox = document.getElementById('enemyResponse');
+
+// JB Quotes
+
+const jbQuotes = [
+    'You don\'t know...........YET!!!',
+    'Oh snap'];
+
+
+
+function resetAnimation(head) {
+    head.style.animation = 'reset 500ms';
+}
+
+
+function heroHurtAnimation () {
+    enemyHead.style.animation = 'enemyAttack 300ms';
+    heroHead.style.animation = 'heroHurt 500ms ease-in';
+}
 
 
 
@@ -272,39 +307,73 @@ function percentageHealth () {
 const handleClickOnSubmit = function (event) {
     event.preventDefault();
     attackElem.addEventListener('click', handleClickOnAttack);
-    
-    let selectedAnswer = event.target.answer.value
 
+    let selectedAnswer = event.target.answer.value
+    totalScore -= 1000;
+
+    // IF ANSWER CORRECT
     if (selectedAnswer === currentQuestion.correctAnswer) {
+        // Attack Animations
+        heroHead.style.animation = 'heroAttack 300ms forwards';
+        enemyHead.style.animation = 'enemyHurt 500ms ease-in forwards';     
+        // Decrease enemy health and update text content        
         enemy.health -= currentQuestion.damage;
         enemyHealthCtr.textContent = enemy.health;
-
+        // calculate hero percentage and assign width to health bar div
+        enemyPercent = percentageHealth(enemy);
+        enemyHealthBar.style.width = `${enemyPercent}%`;
+        // if health is below 150, turn red
+        if (enemy.health < 150) {
+            enemyHealthBar.style.backgroundColor = 'red';
+        }
         alert('you got it');
+
     } else if (selectedAnswer !== currentQuestion.correctAnswer) {
+        
+        //JB RESPONSE --  1. make box visible..   2. fill response in box
+        responseBox.style.display = 'grid';
+        responseBox.textContent = jbQuotes[0];
+
+
+        // Enemy Attack animations
+        setTimeout(heroHurtAnimation, 4000);
+        
+        
         hero.health -= 50;
         heroHealthCtr.textContent = hero.health;
+
+        // calculate hero percentage and assign width to health bar div
+        heroPercent = percentageHealth(hero);
+        heroHealthBar.style.width = `${heroPercent}%`;
+
+        // if health is below 150, turn red
+        if (hero.health < 150) {
+            heroHealthBar.style.backgroundColor = 'red';
+        }
 
         alert('incorrect');
     }
     const inputs = document.querySelectorAll('input[type=radio]:checked');
-    for (let i = 0; i < inputs.length; i+=1) {
+    for (let i = 0; i < inputs.length; i += 1) {
         inputs[i].checked = false;
     }
 
     if (hero.health <= 0) {
         let lost = "YOU DIED.";
         localStorage.setItem("endresult", JSON.stringify(lost));
+        localStorage.setItem("endscore", JSON.stringify(totalScore));
         answerSubmitButton.removeEventListener('submit', handleClickOnSubmit)
         window.location.replace("results.html");
     }
     if (enemy.health <= 0) {
         let win = "You Won!";
         localStorage.setItem("endresult", JSON.stringify(win));
+        localStorage.setItem("endscore", JSON.stringify(totalScore));
         answerSubmitButton.removeEventListener('submit', handleClickOnSubmit)
         window.location.replace("results.html");
     }
 
-    quizHider.style.display ='none';
+    quizHider.style.display = 'none';
     console.log(event.target.answer.value, "test");
 };
 
@@ -320,12 +389,6 @@ answerSubmitButton.addEventListener('submit', handleClickOnSubmit);
 // TODO: when user clicks on light attack, choose a constructed light question randomly from lightquestion array (LightQuestion.all) and populate it in the quiz-ctr div with the question, answers on radio buttons, and a correct answer specified. Once they submit, calculate if they got it right. If they did, remove health from enemy. If they did not, remove health from hero. If either hero or enemy is not dead, let them select another attack.
 
 
-
-
-
-function characterHealth() {
-
-}
 
 //2. TODO set up a function that evalutes the health of hero and enemy to see if it is at or below 0 and generate the post game
 //TODO POST GAME
