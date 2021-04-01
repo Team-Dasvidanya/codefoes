@@ -50,7 +50,7 @@ main {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  background-color: cadetblue;
+  background-color: white;
 }
 
 form {
@@ -95,7 +95,7 @@ form > div > button {
 
 .mainRight {
   width: 50%;
-  background-color: blue;
+  background-color: white;
 }
 
 .score-ctr {
@@ -179,6 +179,9 @@ footer {
 /* Quiz Question Container */
 .quiz-ctr {
   background-color: cornsilk;
+  background-image: url(img/list-bg.png);
+  /* background-position: center center; */
+  background-size: cover;
   width: 500px;
   height: 40%;
 }
@@ -188,9 +191,10 @@ footer {
   font-size: 0.7em;
 }
 
-.quiz-ctr-form > h3 {
-  margin: 20px 0px 30px 20px;
-  font-size: 1em;
+
+.quiz-ctr-form>h3 {
+  margin: 20px 0px 30px 40px;
+  font-size: 1.5em;
 }
 
 /* .quiz-ctr-form>input {
@@ -199,11 +203,13 @@ footer {
 
 input[type="radio"] {
   float: left;
+  margin-left: 40px;
 }
 
 label {
-  margin-left: 30px;
+  margin-left: 60px;
   display: block;
+  font-size: 18px;
 }
 
 .quiz-ctr-form > button {
@@ -211,11 +217,19 @@ label {
   height: 25px;
   background-color: blue;
   color: white;
+  margin-left: 200px;
 }
 
 /* Hero Container */
 .hero-ctr {
-  background-color: lightgrey;
+  font-family: 'Russo One', sans-serif;
+  background-image: linear-gradient(200deg, rgb(231, 123, 123), rgb(254, 255, 168));
+  /* background-image: url(img/battle2.jpg); */
+  background-position: center;
+  border: solid 10px black;
+  box-shadow:  1px 1px 2px black, 0 0 25px rgb(238, 83, 49), 0 0 25px rgb(255, 209, 118);
+  border-width: .5em;
+  background-size: cover;
   width: 500px;
   height: 40%;
   display: flex;
@@ -260,7 +274,14 @@ label {
 
 /* Opponent Container */
 .opponent-ctr {
-  background-color: lightgrey;
+  font-family: 'Russo One', sans-serif;
+  background-image: linear-gradient(100deg, rgb(231, 123, 123), rgb(254, 255, 168));
+  /* background-image: url(img/clouds.jpg); */
+  background-position: center center;
+  border: solid 10px black;
+  box-shadow: 1px 1px 2px black, 0 0 25px rgb(78, 117, 224), 0 0 25px rgb(245, 205, 124);
+  border-width: .5em;
+  background-size: cover;
   width: 500px;
   height: 40%;
   display: flex;
@@ -272,6 +293,14 @@ label {
   margin: 20px 20px;
 }
 
+/* Choose Your Attack Text */
+#choose-attack {
+  font-family: 'Russo One', sans-serif;
+  font-size: 30px;
+  position: absolute;
+  top: 5%; 
+}
+
 
 
 
@@ -280,27 +309,41 @@ label {
 
 /* Attack Selection Container */
 .attack-ctr {
+  font-family: 'Russo One', sans-serif;
+  font-size: .8em;
   background-color: cornsilk;
+  background-image: url(img/battle.jpg);
+  /* Photo by Hasan Almasi on Unsplash  */
+  background-position: center; 
+  border-style: solid;
+  border-width: .5em;
   width: 500px;
   height: 200px;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  position: relative;
 }
 
 .attack-item-light {
   border: solid 10px black;
+  border-width: .5em;
+  background-color:rgb(245, 238, 176);
   padding: 20px;
   border-radius: 20px;
 }
 
 .attack-item-medium {
   border: solid 10px black;
+  border-width: .5em;
+  background-color:rgb(230, 183, 97);
   padding: 20px;
   border-radius: 20px;
 }
 .attack-item-heavy {
   border: solid 10px black;
+  border-width: .5em;
+  background-color:rgb(197, 103, 86);
   padding: 20px;
   border-radius: 20px;
 }
