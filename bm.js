@@ -114,7 +114,7 @@ new MediumQuestion("In JavaScript, what is the difference between the == and ===
 new MediumQuestion("What does the CSS property 'float' do?", "Allows you to take an element in normal flow and place it as for to the left or the right of the containing element as possible", "Moves an element to sit on the top of its container, as if it were floating on water", "Allows an element to appear to 'float' on the display, with other elements passing underneath it when the page is scrolled", "The positioning of the element varies depending upon its relation to other elements whose 'float' property is set to 'true'", "answer1");
 new MediumQuestion("When used inside of an object, this refers to:", "The object that it is used in", "The block of code following 'this'", "The function concatenation that it is used inside of", "Any variable that is declared either immediately before or immediately after the use of 'this'", "answer1");
 new MediumQuestion("var rabbit = {};", "Object literal notation", "Properties and methods", "Cascading prototypal inheritance", "A constructor function", "answer1");
-new MediumQuestion("An object is a collection of:", "properties and methods", "arguements and methods", "arguements and variables", "variables and arrays", "answer1")
+new MediumQuestion("An object is a collection of:", "properties and methods", "arguments and methods", "arguments and variables", "variables and arrays", "answer1")
 
 new LightQuestion("Your best friend has an account on GitHub with a username of “neatdad22.” He has a repository called “dadjokes.” In order to download the “dadjokes” Git repository on your local machine for the first time, which of the following Git commands would you enter?", "git pull origin https://github.com/neatdad22/dadjokes.git", "git merge https://github.com/neatdad22/dadjokes.git", "git init https://github.com/neatdad22/dadjokes.git", "git clone https://github.com/neatdad22/dadjokes.git", "answer4");
 new LightQuestion("What property is used to change the text color of an element?", "textcolor", "font-color", "fontcolor", "color", "answer4");
@@ -334,9 +334,21 @@ const responseBox = document.getElementById('enemyResponse');
 
 const jbQuotes = [
     'You don\'t know...........YET!!!',
-    'Oh snap', 'I\'m Johnny Blue Eyes'];
+    'Where\'s my applause box....', 
+    'All right...',
+    'Sara, do you wanna take this one?',
+    `Looks like ${JSON.parse(userName)}'s been disconnected from Zoom...`    
+];
+
+const defeatQuote = "You really think you can defeat me???"
+
+const niceJobQuote = "Not too shabby"
 
 
+function generateJBQuote () {
+    shuffle(jbQuotes);
+    return jbQuotes[0];
+}
 
 function resetAnimation(head) {
     head.style.animation = 'reset 500ms';
@@ -372,9 +384,20 @@ const handleClickOnSubmit = function (event) {
         // calculate hero percentage and assign width to health bar div
         enemyPercent = percentageHealth(enemy);
         enemyHealthBar.style.width = `${enemyPercent}%`;
+
+
+        // if health is below 150, turn red
+        if (enemy.health < 300 && enemy.health > 249) {
+            responseBox.style.display = 'grid';
+        responseBox.textContent = niceJobQuote;
+        }
+
+
         // if health is below 150, turn red
         if (enemy.health < 150) {
             enemyHealthBar.style.backgroundColor = 'red';
+            responseBox.style.display = 'grid';
+        responseBox.textContent = defeatQuote;
         }
         alert('you got it');
 
@@ -382,7 +405,7 @@ const handleClickOnSubmit = function (event) {
 
         //JB RESPONSE --  1. make box visible..   2. fill response in box
         responseBox.style.display = 'grid';
-        responseBox.textContent = jbQuotes[0];
+        responseBox.textContent = generateJBQuote();
 
 
         // Enemy Attack animations
