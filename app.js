@@ -4,7 +4,8 @@ function setUserName(event) {
     event.preventDefault();
     let stringifiedName = JSON.stringify(event.target.userName.value);
     console.log('eventValue', event.target.userName.value);
-    localStorage.setItem('userName', stringifiedName);
+    localStorage.setItem("userName", stringifiedName);
+    document.getElementById("welcome-user-h3").textContent = "Welcome, " + JSON.parse(stringifiedName);
     userInputField.value = '';
 }
 

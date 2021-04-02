@@ -334,18 +334,28 @@ const responseBox = document.getElementById('enemyResponse');
 
 const jbQuotes = [
     'You don\'t know...........YET!!!',
-    'Where\'s my applause box....', 
+    'Where\'s my applause box....',
     'All right...',
     'Sara, do you wanna take this one?',
-    `Looks like ${JSON.parse(userName)}'s been disconnected from Zoom...`    
+    `Looks like ${JSON.parse(userName)}'s been disconnected from Zoom...`,
+    `Anyone wanna help ${JSON.parse(userName)} with this one?`,
 ];
 
-const defeatQuote = "You really think you can defeat me???"
+const defeatQuote = ["You really think you can defeat me???", `Alright folks, ${JSON.parse(userName)} is gonna teach today`, "This is why they pay us the big bucks"]
 
-const niceJobQuote = "Not too shabby"
+function generateDefeatQuote() {
+    shuffle(defeatQuote);
+    return defeatQuote[0];
+}
 
+const niceJobQuote = ["Not too shabby", "That's exactly right!", "...heh..."]
 
-function generateJBQuote () {
+function generateNiceQuote() {
+    shuffle(niceJobQuote);
+    return niceJobQuote[0];
+}
+
+function generateJBQuote() {
     shuffle(jbQuotes);
     return jbQuotes[0];
 }
@@ -387,9 +397,9 @@ const handleClickOnSubmit = function (event) {
 
 
         // if health is below 150, turn red
-        if (enemy.health < 300 && enemy.health > 249) {
+        if (enemy.health < 301 && enemy.health > 249) {
             responseBox.style.display = 'grid';
-        responseBox.textContent = niceJobQuote;
+            responseBox.textContent = generateNiceQuote();
         }
 
 
@@ -397,7 +407,7 @@ const handleClickOnSubmit = function (event) {
         if (enemy.health < 150) {
             enemyHealthBar.style.backgroundColor = 'red';
             responseBox.style.display = 'grid';
-        responseBox.textContent = defeatQuote;
+            responseBox.textContent = generateDefeatQuote();
         }
         alert('Yes, you got it!');
 
