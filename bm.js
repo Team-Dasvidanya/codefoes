@@ -153,11 +153,11 @@ const handleClickOnAttack = function (event) {
         const attackWeClicked = event.target;
         const id = attackWeClicked.id;
         console.log(attackWeClicked);
-        if (id === "attack-item-light" || id === "attack-item-medium" || id === "attack-item-heavy") {
-            if (id === "attack-item-light") {
+        if (id === "attack-item-light" || id === "attack-item-medium" || id === "attack-item-heavy" || id === "lightattack" || id === "mediumattack" || id === "heavyattack") {
+            if (id === "attack-item-light" || id === "lightattack") {
                 currentQuestion = pickNewLightQuestion();
                 attackElem.removeEventListener('click', handleClickOnAttack);
-            } else if (id === "attack-item-medium") {
+            } else if (id === "attack-item-medium" || id === "mediumattack") {
                 currentQuestion = pickNewMediumQuestion();
                 attackElem.removeEventListener('click', handleClickOnAttack);
             } else {
@@ -165,13 +165,13 @@ const handleClickOnAttack = function (event) {
                 attackElem.removeEventListener('click', handleClickOnAttack);
             }
         }
-        quizHider.style.display = 'block';
         quizQuestion(currentQuestion);
         quizAnswer1(currentQuestion);
         quizAnswer2(currentQuestion);
         quizAnswer3(currentQuestion);
         quizAnswer4(currentQuestion);
     }
+    quizHider.style.display = 'block';
 }
 
 //TODO generate random question
@@ -399,7 +399,7 @@ const handleClickOnSubmit = function (event) {
             responseBox.style.display = 'grid';
         responseBox.textContent = defeatQuote;
         }
-        alert('you got it');
+        alert('Yes, you got it!');
 
     } else if (selectedAnswer !== currentQuestion.correctAnswer) {
 
@@ -423,7 +423,7 @@ const handleClickOnSubmit = function (event) {
             heroHealthBar.style.backgroundColor = 'red';
         }
 
-        alert('incorrect');
+        alert('Not quite.');
     }
     const inputs = document.querySelectorAll('input[type=radio]:checked');
     for (let i = 0; i < inputs.length; i += 1) {

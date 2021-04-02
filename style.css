@@ -2,9 +2,18 @@
 
 body {
   font-family: helvetica;
-  background-image: url(img/battle.jpg);
+  background-color: rgb(211, 211, 211);
   background-size: cover;
 }
+
+#indexbody {
+  background-image: url(img/battle.jpg);
+}
+
+#resultsbody {
+  background-image: url(img/battle.jpg);
+}
+
   /* Photo by Hasan Almasi on Unsplash  */
 /* HEADING, PARAGRAPH, FONTS */
 
@@ -153,7 +162,7 @@ button {
 /* FOOTER SECTION - TEAM PROFILES */
 
 footer {
-  background-color: lightcyan;
+  background-color: rgb(60, 60, 60);
   margin-top: 40px;
   height: 350px;
   display: flex;
@@ -201,7 +210,10 @@ footer {
   /* background-position: center center; */
   background-size: cover;
   width: 500px;
-  height: 40%;
+  /* height: 40%; */
+  min-height: 40%;
+  max-height: 50%;
+  padding-right: 20px;
 }
 
 .quiz-ctr-form {
@@ -250,18 +262,20 @@ a:visited {
 /* Hero Container */
 .hero-ctr {
   font-family: 'Russo One', sans-serif;
-  background-image: linear-gradient(200deg, rgb(231, 123, 123), rgb(254, 255, 168));
+  background-image: linear-gradient(200deg, rgb(53, 167, 0), rgb(254, 255, 168));
   /* background-image: url(img/battle2.jpg); */
   background-position: center;
   border: solid 10px black;
-  box-shadow:  1px 1px 2px black, 0 0 25px rgb(238, 83, 49), 0 0 25px rgb(255, 209, 118);
-  border-width: .5em;
+  box-shadow:  3px 3px 5px black, 0 0 25px rgb(0, 175, 15), 0 0 25px rgb(255, 217, 141);
+  border-width: .75em;
   background-size: cover;
   width: 500px;
   height: 40%;
   display: flex;
   align-items: center;
+  border-image: url(img/forest-bathing.jpg) 50 round;
 }
+/* https://time.com/5259602/japanese-forest-bathing/ */
 
 .hero-ctr > img {
   margin: 20px 20px;
@@ -302,21 +316,40 @@ a:visited {
   
 }
 
+#indexsubmitbutton{
+  transition: .5s ease-in;
+}
+
+#indexsubmitbutton:hover {
+background-color: rgb(151, 2, 2);
+}
+
+#entergamebutton {
+  transition: .5s ease-in;
+}
+
+#entergamebutton:hover {
+  background-color: rgb(151, 2, 2);
+  transform:scale(1.1);
+}
+
 /* Opponent Container */
 .opponent-ctr {
   font-family: 'Russo One', sans-serif;
-  background-image: linear-gradient(100deg, rgb(231, 123, 123), rgb(254, 255, 168));
+  background-image: linear-gradient(100deg, rgb(231, 123, 123), rgb(70, 70, 70));
   /* background-image: url(img/clouds.jpg); */
   background-position: center center;
   border: solid 10px black;
-  box-shadow: 1px 1px 2px black, 0 0 25px rgb(78, 117, 224), 0 0 25px rgb(245, 205, 124);
-  border-width: .5em;
+  box-shadow: 3px 3px 5px black, 0 0 25px rgb(0, 0, 0), 0 0 25px rgb(255, 0, 0);
+  border-width: .75em;
   background-size: cover;
   width: 500px;
   height: 40%;
   display: flex;
   align-items: center;
   position: relative;
+  border-image: url(img/lava.jpg) 50 round;
+  /* https://www.pinterest.com/pin/672514156847408472/ */
 }
 
 .opponent-ctr > img {
@@ -330,6 +363,13 @@ a:visited {
   font-size: 30px;
   position: absolute;
   top: 5%; 
+  background-color: rgb(206, 206, 206);
+  padding: 3px;
+  border: black;
+  border-style: solid;
+  border-width: 3px;
+  border-radius: 5px;
+
 }
 
 
@@ -344,7 +384,9 @@ a:visited {
   font-family: 'Russo One', sans-serif;
   font-size: .8em;
   background-color: cornsilk;
-  background-image: linear-gradient(100deg, rgb(192, 40, 40), rgb(224, 224, 224));
+  background-image: linear-gradient(100deg, rgb(90, 90, 90), rgb(214, 214, 214));
+  background-image: url(img/battle.jpg);
+  /* background-image: url(img/Medieval-Weapons.gif); */
   /* background-image: url(img/horde.png); */
   /* Photo by Hasan Almasi on Unsplash  */
   background-position: center; 
@@ -363,6 +405,8 @@ a:visited {
   border: solid 10px black;
   border-width: .5em;
   background-color:rgb(245, 238, 176);
+  background-image: url(img/Medieval-Weapons.gif);
+  background-size: cover;
   padding: 20px;
   border-radius: 20px;
 }
@@ -371,6 +415,8 @@ a:visited {
   border: solid 10px black;
   border-width: .5em;
   background-color:rgb(230, 183, 97);
+  background-image: url(img/Medieval-Weapons.gif);
+  background-size: cover;
   padding: 20px;
   border-radius: 20px;
 }
@@ -378,10 +424,28 @@ a:visited {
   border: solid 10px black;
   border-width: .5em;
   background-color:rgb(197, 103, 86);
+  background-image: url(img/Medieval-Weapons.gif);
+  background-size: cover;
+  /* background: rgba(0, 0, 0, 0.4); */
   padding: 20px;
   border-radius: 20px;
 }
 
+#lightattack {
+  background-color: rgb(255, 240, 37);
+  padding: 3px;
+  border-radius: 3px;
+}
+#mediumattack {
+  background-color: rgb(255, 139, 62);
+  padding: 3px;
+  border-radius: 3px;
+}
+#heavyattack {
+  background-color: rgb(255, 47, 47);
+  padding: 3px;
+  border-radius: 3px;
+}
 /* RESULTS PAGE CSS */
 
 .resultDisplay {
