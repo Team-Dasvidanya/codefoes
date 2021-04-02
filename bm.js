@@ -334,9 +334,18 @@ const responseBox = document.getElementById('enemyResponse');
 
 const jbQuotes = [
     'You don\'t know...........YET!!!',
-    'Oh snap', 'I\'m Johnny Blue Eyes'];
+    'Where\'s my applause box....', 
+    'All right...',
+    'Sara, do you wanna take this one?'    
+];
 
 
+
+
+function generateJBQuote () {
+    shuffle(jbQuotes);
+    return jbQuotes[0];
+}
 
 function resetAnimation(head) {
     head.style.animation = 'reset 500ms';
@@ -382,7 +391,7 @@ const handleClickOnSubmit = function (event) {
 
         //JB RESPONSE --  1. make box visible..   2. fill response in box
         responseBox.style.display = 'grid';
-        responseBox.textContent = jbQuotes[0];
+        responseBox.textContent = generateJBQuote();
 
 
         // Enemy Attack animations
