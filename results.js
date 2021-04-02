@@ -10,6 +10,7 @@ function score() {
     return score;
 
 }
+//changed fonts
 
 // results();
 console.log(results());
@@ -26,8 +27,8 @@ scoreShown.textContent = JSON.parse(score());
 const head = document.getElementById('hero-head');
 
 
-if (gameResult === 'You Won!'){
- head.style.animation = 'youWon 2s';
+if (gameResult === 'You Won!') {
+    head.style.animation = 'youWon 2s';
 }
 if (gameResult === 'YOU DIED.') {
     head.style.animation = 'youDied 3s'
