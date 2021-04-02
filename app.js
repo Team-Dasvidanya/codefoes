@@ -5,7 +5,11 @@ function setUserName(event) {
     let stringifiedName = JSON.stringify(event.target.userName.value);
     console.log('eventValue', event.target.userName.value);
     localStorage.setItem('userName', stringifiedName);
+    userInputField.value = '';
 }
+
+const userInputField = document.querySelector('#userNameForm>div>input');
+console.log(userInputField);
 
 
 const userNameFormSubmit = document.getElementById('userNameForm');
