@@ -8,22 +8,27 @@ body {
 
 h1 {
   font-size: 4em;
+  font-family: 'Russo One', sans-serif;
 }
 
 h2 {
   font-size: 5em;
+  font-family: 'Russo One', sans-serif;
 }
 
 h3 {
   font-size: 2em;
+  font-family: 'Russo One', sans-serif;
 }
 
 h4 {
   font-size: 1.4em;
+  font-family: 'Russo One', sans-serif;
 }
 
 h5 {
   font-size: 1.3em;
+  font-family: 'Russo One', sans-serif;
 }
 
 /* HEADER NAV */
@@ -33,6 +38,7 @@ header {
   height: 120px;
   display: grid;
   place-items: center;
+  font-family: 'Russo One', sans-serif;
 }
 
 /* HOME PAGE MAIN SECTION */
@@ -77,6 +83,11 @@ form > div > button {
   height: 50px;
   border-radius: 20px;
   font-size: 2em;
+  font-family: 'Russo One', sans-serif;
+}
+
+button {
+  font-family: 'Russo One', sans-serif;
 }
 
 .description {
@@ -126,7 +137,7 @@ form > div > button {
 
 .mainRight > a > button {
 
-  width: 200px;
+  width: 300px;
   height: 70px;
   border-radius: 20px;
   font-size: 2em;
