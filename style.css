@@ -2,6 +2,8 @@
 
 body {
   font-family: helvetica;
+  background-image: url(img/battle.jpg);
+  background-size: cover;
 }
 
 /* HEADING, PARAGRAPH, FONTS */
@@ -44,7 +46,7 @@ header {
 /* HOME PAGE MAIN SECTION */
 
 main {
-  background-color: darkgrey;
+  /* background-color: darkgrey; */
   height: 700px;
   margin: 30px auto;
   display: flex;
@@ -56,7 +58,8 @@ main {
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  background-color: white;
+  /* background-color: white; */
+
 }
 
 form {
@@ -94,6 +97,9 @@ button {
   width: 90%;
   position: relative;
   top: -100px;
+  background-color: white;
+  padding: 1rem;
+  border-radius: 3px;
 }
 
 .description > h3 {
@@ -154,7 +160,7 @@ footer {
 }
 
 .prof-ctr {
-  background-color: green;
+  /* background-color: rgb(209, 53, 53); */
   height: 85%;
   width: 300px;
   margin: 10px 20px;
@@ -167,7 +173,7 @@ footer {
 .prof-img {
   width: 90%;
   height: 55%;
-  background-color: indigo;
+  /* background-color: indigo; */
 }
 
 .prof-name {
@@ -229,6 +235,15 @@ label {
   background-color: blue;
   color: white;
   margin-left: 200px;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:visited {
+  color: black;
 }
 
 /* Hero Container */
@@ -377,7 +392,7 @@ label {
 .resultDisplay > h2 {
   margin-bottom: 60px;
   animation: fadeIn 5s ease;
-  text-shadow: 3px 3px #2522ff;
+  text-shadow: 3px 3px #d4d4d4;
 }
 
 .resultDisplay button {
@@ -393,9 +408,25 @@ label {
   transform: scale(1.2);
 }
 
+#hunter {
+  background-image: url(img/hunter-fighter.png);
+  background-size: cover;
+}
 
+#tim {
+  background-image: url(img/tim-fighter.png);
+  background-size: cover;
+}
 
+#rinat {
+  background-image: url(img/rinat-fighter.png);
+  background-size: cover;
+}
 
+#daniel {
+  background-image: url(img/daniel-fighter.png);
+  background-size: cover;
+}
 /* MORE BATTLE CSS --- This should be moved to bm.css eventually */
 
 
