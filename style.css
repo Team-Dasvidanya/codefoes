@@ -157,6 +157,7 @@ footer {
   margin-top: 40px;
   height: 350px;
   display: flex;
+  justify-content: space-around;
 }
 
 .prof-ctr {
