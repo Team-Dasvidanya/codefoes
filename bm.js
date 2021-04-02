@@ -337,7 +337,7 @@ const jbQuotes = [
     'Where\'s my applause box....', 
     'All right...',
     'Sara, do you wanna take this one?',
-    `Looks like ${userName}'s been disconnected...`    
+    `Looks like ${JSON.parse(userName)}'s been disconnected from Zoom...`    
 ];
 
 const defeatQuote = "You really think you can defeat me???"
