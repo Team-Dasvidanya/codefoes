@@ -33,3 +33,5 @@ if (gameResult === 'You Won!') {
 if (gameResult === 'YOU DIED.') {
     head.style.animation = 'youDied 3s'
 }
+
+localStorage.setItem('gameData', null);

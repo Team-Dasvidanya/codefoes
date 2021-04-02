@@ -10,6 +10,9 @@
 // let totalScore = 13000;
 // let userName = '';
 
+let userName = '';
+getUserName();
+
 function GenerateCharacter(name, health, imgUrl) {
     this.name = name;
     this.health = health;
@@ -17,7 +20,7 @@ function GenerateCharacter(name, health, imgUrl) {
 }
 let gameData = {};
 
-let hero = new GenerateCharacter(getUserName(), 500, "img/hero.png");
+let hero = new GenerateCharacter(userName, 500, "img/hero.png");
 let enemy = new GenerateCharacter("JB", 500, "img/jb-fighter.gif");
 
 getGameData();
@@ -29,6 +32,11 @@ function storeGame() {
 
 function getGameData() {
     let gameString = localStorage.getItem('gameData');
+    if (gameString === 'null') {
+        gameString = null;
+        console.log('updated status of game string')
+    }
+    console.log(gameString, 'this is from localstorage');
     if (gameString !== null) {
         console.log(gameString);
         gameData = JSON.parse(gameString);
@@ -36,24 +44,25 @@ function getGameData() {
     } else {
         gameData = {
             totalScore: 13000,
-            userName: '',
+            userName: userName,
             hero: hero,
             enemy: enemy,
         };
     }
-
 }
 
 //TODO pull username from localstorage
 function getUserName() {
-    let userName = localStorage.getItem('userName');
-    console.log(userName);
+    let userNameString = localStorage.getItem('userName');
+    // console.log(userName);
 
-    gameData.userName = JSON.parse(userName);
+    userName = JSON.parse(userNameString);
+    // gameData.hero.name
     // return gameData.userName;
+    console.log('this was success')
 }
 
-getUserName();
+// getUserName();
 storeGame();
 
 const heroName = document.getElementById('heroName');
