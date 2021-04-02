@@ -6,47 +6,61 @@
 
 //TODO PREGAME
 //TODONE generate characters
-let totalScore = 13000;
-let userName = '';
+
+// let totalScore = 13000;
+// let userName = '';
 
 function GenerateCharacter(name, health, imgUrl) {
     this.name = name;
     this.health = health;
     this.imgUrl = imgUrl;
 }
+let gameData = {};
 
 let hero = new GenerateCharacter(getUserName(), 500, "img/hero.png");
 let enemy = new GenerateCharacter("JB", 500, "img/jb-fighter.gif");
 
+getGameData();
+
+function storeGame() {
+    let gameString = JSON.stringify(gameData);
+    localStorage.setItem('gameData', gameString);
+}
+
+function getGameData() {
+    let gameString = localStorage.getItem('gameData');
+    if (gameString !== null) {
+        console.log(gameString);
+        gameData = JSON.parse(gameString);
+        console.log('we have game data')
+    } else {
+        gameData = {
+            totalScore: 13000,
+            userName: '',
+            hero: hero,
+            enemy: enemy,
+        };
+    }
+
+}
+
 //TODO pull username from localstorage
 function getUserName() {
-    userName = localStorage.getItem('userName');
+    let userName = localStorage.getItem('userName');
     console.log(userName);
 
-    JSON.parse(userName);
-    return userName;
+    gameData.userName = JSON.parse(userName);
+    // return gameData.userName;
 }
 
 getUserName();
+storeGame();
 
 const heroName = document.getElementById('heroName');
-heroName.textContent = JSON.parse(userName);
-
-
-
+heroName.textContent = gameData.userName;
 
 
 //TODO initialize the health
-
-// function health() {
-//     let healthTotal = 500;
-// }
-
-/* const heroHealth = document.getElementById("hero-health");
-const enemyHealth = document.getElementById("enemy-health");
-console.log("heroHealth", heroHealth);
-heroHealth.textContent = "500";
-enemyHealth.textContent = "500"; */
 
 //TODO set up quesions and answers in arrays with correct answers identified
 
@@ -131,8 +145,8 @@ new LightQuestion("What does DOM stand for?", "Document Object Model", "Direct O
 
 //TODO GAME
 
-let currentHealthHero = hero.health;
-let currentHealthEnemy = enemy.health;
+let currentHealthHero = gameData.hero.health;
+let currentHealthEnemy = gameData.enemy.health;
 // console.log(currentHealth);
 let death = 0;
 let currentQuestion = null;
@@ -149,7 +163,7 @@ const handleClickOnAttack = function (event) {
     // hide JB Dialogue box
     responseBox.style.display = 'none';
 
-    if (hero.health && enemy.health > death) {
+    if (gameData.hero.health && gameData.enemy.health > death) {
         const attackWeClicked = event.target;
         const id = attackWeClicked.id;
         console.log(attackWeClicked);
@@ -275,7 +289,6 @@ function quizQuestion(selectedQuestion) {
 function quizAnswer1(selectedQuestion) {
     const answer1Elem = document.getElementById("answer1label");
     answer1Elem.textContent = selectedQuestion.answer1;
-    console.log(answer1Elem);
 }
 
 function quizAnswer2(selectedQuestion) {
@@ -305,12 +318,12 @@ let heroHealthBar = document.getElementById('heroHealthBar');
 let enemyHealthBar = document.getElementById('enemyHealthBar');
 
 
-heroHealthCtr.textContent = hero.health;
-enemyHealthCtr.textContent = enemy.health;
+heroHealthCtr.textContent = gameData.hero.health;
+enemyHealthCtr.textContent = gameData.enemy.health;
 
 // Initialize Hero percentage to 100%
-let heroPercent = percentageHealth(hero);
-let enemyPercent = percentageHealth(enemy);
+let heroPercent = percentageHealth(gameData.hero);
+let enemyPercent = percentageHealth(gameData.enemy);
 
 //Assign hero percentage as width value for the healthbar div width
 heroHealthBar.style.width = `${heroPercent}%`;
@@ -337,11 +350,11 @@ const jbQuotes = [
     'Where\'s my applause box....',
     'All right...',
     'Sara, do you wanna take this one?',
-    `Looks like ${JSON.parse(userName)}'s been disconnected from Zoom...`,
-    `Anyone wanna help ${JSON.parse(userName)} with this one?`,
+    `Looks like ${gameData.userName}'s been disconnected from Zoom...`,
+    `Anyone wanna help ${gameData.userName} with this one?`,
 ];
 
-const defeatQuote = ["You really think you can defeat me???", `Alright folks, ${JSON.parse(userName)} is gonna teach today`, "This is why they pay us the big bucks"]
+const defeatQuote = ["You really think you can defeat me???", `Alright folks, ${gameData.userName} is gonna teach today`, "This is why they pay us the big bucks"]
 
 function generateDefeatQuote() {
     shuffle(defeatQuote);
@@ -381,7 +394,7 @@ const handleClickOnSubmit = function (event) {
     attackElem.addEventListener('click', handleClickOnAttack);
 
     let selectedAnswer = event.target.answer.value
-    totalScore -= 1000;
+    gameData.totalScore -= 1000;
 
     // IF ANSWER CORRECT
     if (selectedAnswer === currentQuestion.correctAnswer) {
@@ -389,22 +402,23 @@ const handleClickOnSubmit = function (event) {
         heroHead.style.animation = 'heroAttack 300ms forwards';
         enemyHead.style.animation = 'enemyHurt 500ms ease-in forwards';
         // Decrease enemy health and update text content        
-        enemy.health -= currentQuestion.damage;
-        enemyHealthCtr.textContent = enemy.health;
+        gameData.enemy.health -= currentQuestion.damage;
+        storeGame();
+        enemyHealthCtr.textContent = gameData.enemy.health;
         // calculate hero percentage and assign width to health bar div
-        enemyPercent = percentageHealth(enemy);
+        enemyPercent = percentageHealth(gameData.enemy);
         enemyHealthBar.style.width = `${enemyPercent}%`;
 
 
         // if health is below 150, turn red
-        if (enemy.health < 301 && enemy.health > 249) {
+        if (gameData.enemy.health < 301 && gameData.enemy.health > 249) {
             responseBox.style.display = 'grid';
             responseBox.textContent = generateNiceQuote();
         }
 
 
         // if health is below 150, turn red
-        if (enemy.health < 150) {
+        if (gameData.enemy.health < 150) {
             enemyHealthBar.style.backgroundColor = 'red';
             responseBox.style.display = 'grid';
             responseBox.textContent = generateDefeatQuote();
@@ -412,7 +426,7 @@ const handleClickOnSubmit = function (event) {
         alert('Yes, you got it!');
 
     } else if (selectedAnswer !== currentQuestion.correctAnswer) {
-
+        gameData.totalScore -= 500;
         //JB RESPONSE --  1. make box visible..   2. fill response in box
         responseBox.style.display = 'grid';
         responseBox.textContent = generateJBQuote();
@@ -420,16 +434,17 @@ const handleClickOnSubmit = function (event) {
 
         // Enemy Attack animations
         setTimeout(heroHurtAnimation, 4000);
-        hero.health -= currentQuestion.damage;;
+        gameData.hero.health -= currentQuestion.damage;
+        storeGame();
 
-        heroHealthCtr.textContent = hero.health;
+        heroHealthCtr.textContent = gameData.hero.health;
 
         // calculate hero percentage and assign width to health bar div
-        heroPercent = percentageHealth(hero);
+        heroPercent = percentageHealth(gameData.hero);
         heroHealthBar.style.width = `${heroPercent}%`;
 
         // if health is below 150, turn red
-        if (hero.health < 150) {
+        if (gameData.hero.health < 150) {
             heroHealthBar.style.backgroundColor = 'red';
         }
 
@@ -440,26 +455,28 @@ const handleClickOnSubmit = function (event) {
         inputs[i].checked = false;
     }
 
-    if (hero.health <= 0) {
+    if (gameData.hero.health <= 0) {
         let lost = "YOU DIED.";
         // make sure it doesn't display a negative number for health, then calling the healthbar animation.
         heroHealthCtr.textContent = 0;
 
         localStorage.setItem("endresult", JSON.stringify(lost));
-        localStorage.setItem("endscore", JSON.stringify(totalScore));
+        localStorage.setItem("endscore", JSON.stringify(gameData.totalScore));
+        storeGame();
         answerSubmitButton.removeEventListener('submit', handleClickOnSubmit)
         window.location.replace("results.html");
     }
-    if (enemy.health <= 0) {
+    if (gameData.enemy.health <= 0) {
+        gameData.totalScore += 10000;
         let win = "You Won!";
         // make sure it doesn't display a negative number for health, then calling the healthbar animation.
         enemyHealthCtr.textContent = 0;
-        heroPercent = percentageHealth(hero);
+        heroPercent = percentageHealth(gameData.hero);
         heroHealthBar.style.width = `${heroPercent}%`;
 
 
         localStorage.setItem("endresult", JSON.stringify(win));
-        localStorage.setItem("endscore", JSON.stringify(totalScore));
+        localStorage.setItem("endscore", JSON.stringify(gameData.totalScore));
         enemyHead.style.animation = 'bossDied 4s';
         answerSubmitButton.removeEventListener('submit', handleClickOnSubmit);
 
@@ -472,7 +489,6 @@ const handleClickOnSubmit = function (event) {
     quizHider.style.display = 'none';
     console.log(event.target.answer.value, "test");
 };
-
 
 //TODONE add an event listener for clicks or submit on answers or set it up like a quiz form with radio buttons
 const attackElem = document.getElementById('attack-ctr');
@@ -506,49 +522,10 @@ answerSubmitButton.addEventListener('submit', handleClickOnSubmit);
 //     progressInt = null,
 //     progressComplete = 0;
 
-// gameData = {
-//     step: 1,
-//     hero: {},
-//     enemy: {}
-// }
 
 //TODO set up a function that chooses a random question and its answers with a correct answer 
 
 
-
-
-// function randomNum(max, min) {
-//     // generate a random number
-
-//     // min not required
-//     if (min === undefined || min === '' || min === null) {
-//         // min default value
-//         min = 0;
-//     }
-
-//     // random number, yay
-//     return Math.floor(Math.random() * (max - min) + min);
-// }
-
-// function attackMultiplier(attacker, curAttack) {
-//     var defender = 'enemy';
-//     if (attacker === 'enemy') {
-//         defender = 'hero';
-//     }
-
-//     if (gameData[defender].weakness.indexOf(gameData[attacker].type) >= 0) {
-//         // weakness exists
-//         curAttack.hp *= 2;
-//     }
-
-//     if (gameData[defender].resistance.indexOf(gameData[attacker].type) >= 0) {
-//         // weakness exists
-//         curAttack.hp /= 2;
-//     }
-
-//     curAttack.hp = Math.floor(curAttack.hp);
-//     return curAttack.hp;
-// }
 
 
 
