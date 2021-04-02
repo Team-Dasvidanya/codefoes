@@ -5,7 +5,7 @@ body {
   background-image: url(img/battle.jpg);
   background-size: cover;
 }
-
+  /* Photo by Hasan Almasi on Unsplash  */
 /* HEADING, PARAGRAPH, FONTS */
 
 h1 {
@@ -112,7 +112,7 @@ button {
 
 .mainRight {
   width: 50%;
-  background-color: white;
+  /* background-color: white; */
 }
 
 .score-ctr {
@@ -340,7 +340,8 @@ a:visited {
   font-family: 'Russo One', sans-serif;
   font-size: .8em;
   background-color: cornsilk;
-  background-image: url(img/battle.jpg);
+  background-image: linear-gradient(100deg, rgb(192, 40, 40), rgb(224, 224, 224));
+  /* background-image: url(img/horde.png); */
   /* Photo by Hasan Almasi on Unsplash  */
   background-position: center; 
   border-style: solid;
@@ -351,6 +352,7 @@ a:visited {
   justify-content: space-around;
   align-items: center;
   position: relative;
+  background-size: cover;
 }
 
 .attack-item-light {
